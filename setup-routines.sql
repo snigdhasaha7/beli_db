@@ -1,16 +1,17 @@
 DROP PROCEDURE sp_find_chains;
+DROP VIEW chain_rests;
+
+CREATE VIEW chain_rests AS
+    SELECT restaurant_id, restaurant_name, website FROM restaurant
+        WHERE restaurant_name IN
+            (SELECT restaurant_name FROM 
+                restaurant NATURAL LEFT JOIN in_cuisine NATURAL LEFT JOIN in_category
+            GROUP BY restaurant_name, cuisine_id, category_id
+            HAVING COUNT(*) > 1);  
 
 DELIMITER !
-CREATE PROCEDURE sp_find_chains(
-)
+CREATE PROCEDURE sp_find_chains()
 BEGIN 
-    CREATE TEMPORARY TABLE chain_rests
-        SELECT restaurant_id, restaurant_name, website FROM restaurant
-            WHERE restaurant_name IN
-                (SELECT restaurant_name FROM restaurant
-                GROUP BY restaurant_name, cuisine_id, category_id
-                HAVING COUNT(*) > 1);
-    
     DECLARE rest_name VARCHAR(50);
     DECLARE rest_id INTEGER;
     DECLARE rest_web VARCHAR(200); 
@@ -22,12 +23,11 @@ BEGIN
         
     WHILE NOT done DO
         FETCH cur INTO rest_id, rest_name, rest_web;
-        FETCH id_cur
         IF NOT DONE THEN
             IF rest_name NOT IN (SELECT chain_name FROM chain) THEN
                 INSERT INTO chain (chain_name, chain_website) VALUES
                     (rest_name, rest_web);
-            END IF 
+            END IF;
             
             IF rest_id NOT IN (SELECT restaurant_id FROM belongs_in_chain) THEN
                 SELECT chain_id FROM chain 
@@ -35,8 +35,8 @@ BEGIN
                 INTO curr_chain_id;
 
                 INSERT INTO belongs_in_chain VALUES (curr_chain_id, rest_id);
-            END IF
-        END IF
+            END IF;
+        END IF;
     END WHILE;
     CLOSE cur;
 
