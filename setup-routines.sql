@@ -3,7 +3,7 @@ DROP PROCEDURE IF EXISTS sp_find_chains;
 DROP TRIGGER IF EXISTS trg_new_rating;
 DROP PROCEDURE IF EXISTS sp_cuisinetoprest_newrating;
 DROP TABLE IF EXISTS mv_top_restaurants_by_cuisine;
-
+DROP VIEW chain_rests;
 
 -- UDF
 
@@ -30,14 +30,6 @@ END !
 -- Back to the standard SQL delimiter
 DELIMITER ;
 
-
-
-
-
-
-
-
-DROP VIEW chain_rests;
 
 CREATE VIEW chain_rests AS
     SELECT restaurant_id, restaurant_name, website FROM restaurant
