@@ -87,7 +87,7 @@ CREATE TABLE restaurant (
     -- approximate location of restaurant, for recommendations
     restaurant_location VARCHAR(200),
     -- describes price range with one of the following choices
-    price_range    	    VARCHAR(4)
+    price_range    	    VARCHAR(5)
         CHECK (price_range IN (NULL, '$', '$$', '$$$', '$$$$')),
 
     PRIMARY KEY (restaurant_id)
@@ -130,9 +130,10 @@ CREATE TABLE in_cuisine (
 -- and a mandatory rating value, and an optional rating_description/
 CREATE TABLE rating (
     rating_id           INTEGER             AUTO_INCREMENT,
-    -- rating should be between 0 (incl) and 10 (excl), allowing 1 decimal
+    -- rating should be between 0 and 10 (incl), allowing 1 decimal
     -- each rating row must have a rating
-    rating 	            NUMERIC(2, 1)       NOT NULL,
+    rating 	            NUMERIC(3, 1)       NOT NULL
+                        CHECK (rating <= 10.0),
     -- optional description of restaurant or reasoning for rating
     rating_description 	VARCHAR(5000),
 

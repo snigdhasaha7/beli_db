@@ -87,57 +87,57 @@ DELIMITER ;
 -- Have an MV of the highest average rating restaurants by cuisine
 -- Will update this MV every time a new rating is added
 
-CREATE TABLE mv_top_restaurants_by_cuisine (
-    cuisine_id 	         INTEGER         NOT NULL,
-    restaurant_id        INTEGER         NOT NULL,
-    avg_rating           NUMERIC(2, 1)   NOT NULL,
-    PRIMARY KEY (cuisine_id, restaurant_id)
-);
+-- CREATE TABLE mv_top_restaurants_by_cuisine (
+--     cuisine_id 	         INTEGER         NOT NULL,
+--     restaurant_id        INTEGER         NOT NULL,
+--     avg_rating           NUMERIC(2, 1)   NOT NULL,
+--     PRIMARY KEY (cuisine_id, restaurant_id)
+-- );
 
-INSERT INTO mv_top_restaurants_by_cuisine (cuisine_id,
-                                           restaurant_id,
-                                           avg_rating)
-SELECT cuisine_id,
-       restaurant_id,
-       AVG(rating) AS avg_rating
-FROM rating NATURAL LEFT JOIN user_rating NATURAL LEFT JOIN in_cuisine
-GROUP BY cuisine_id, restaurant_id
-HAVING avg_rating >= 9.0
-ORDER BY cuisine_id ASC, avg_rating DESC;
+-- INSERT INTO mv_top_restaurants_by_cuisine (cuisine_id,
+--                                            restaurant_id,
+--                                            avg_rating)
+-- SELECT cuisine_id,
+--        restaurant_id,
+--        AVG(rating) AS avg_rating
+-- FROM rating NATURAL LEFT JOIN user_rating NATURAL LEFT JOIN in_cuisine
+-- GROUP BY cuisine_id, restaurant_id
+-- HAVING avg_rating >= 9.0
+-- ORDER BY cuisine_id ASC, avg_rating DESC;
 
 
-DELIMITER !
+-- DELIMITER !
 
-CREATE PROCEDURE sp_cuisinetoprest_newrating(
-    new_restaurant_id INTEGER
-)
-BEGIN 
-    DECLARE rest_id INTEGER;
-    DECLARE cuis_id INTEGER;
-    DECLARE new_avg_rating NUMERIC(2, 1);
+-- CREATE PROCEDURE sp_cuisinetoprest_newrating(
+--     new_restaurant_id INTEGER
+-- )
+-- BEGIN 
+--     DECLARE rest_id INTEGER;
+--     DECLARE cuis_id INTEGER;
+--     DECLARE new_avg_rating NUMERIC(2, 1);
 
-    SELECT restaurant_id, cuisine_id, AVG(rating) AS avg_rating
-    INTO rest_id, cuis_id, new_avg_rating
-    FROM rating NATURAL LEFT JOIN user_rating NATURAL LEFT JOIN in_cuisine
-    WHERE restaurant_id = new_restaurant_id
-    GROUP BY restaurant_id;
+--     SELECT restaurant_id, cuisine_id, AVG(rating) AS avg_rating
+--     INTO rest_id, cuis_id, new_avg_rating
+--     FROM rating NATURAL LEFT JOIN user_rating NATURAL LEFT JOIN in_cuisine
+--     WHERE restaurant_id = new_restaurant_id
+--     GROUP BY restaurant_id;
 
-    IF (new_avg_rating >= 9.0) THEN
-        INSERT INTO mv_top_restaurants_by_cuisine (cuisine_id,
-                                                   restaurant_id,
-                                                   avg_rating)
-        VALUES (rest_id, cuis_id, new_avg_rating);
-    END IF;
+--     IF (new_avg_rating >= 9.0) THEN
+--         INSERT INTO mv_top_restaurants_by_cuisine (cuisine_id,
+--                                                    restaurant_id,
+--                                                    avg_rating)
+--         VALUES (rest_id, cuis_id, new_avg_rating);
+--     END IF;
 
-END !
+-- END !
 
--- Handles new rows added to rating table, updates MV accordingly
-CREATE TRIGGER trg_new_rating AFTER INSERT
-       ON user_rating FOR EACH ROW
-BEGIN
-    CALL sp_cuisinetoprest_newrating(NEW.restaurant_id);
-END !
-DELIMITER ;
+-- -- Handles new rows added to rating table, updates MV accordingly
+-- CREATE TRIGGER trg_new_rating AFTER INSERT
+--        ON user_rating FOR EACH ROW
+-- BEGIN
+--     CALL sp_cuisinetoprest_newrating(NEW.restaurant_id);
+-- END !
+-- DELIMITER ;
 
 
 DELIMITER ! 
