@@ -10,12 +10,12 @@ DROP TABLE IF EXISTS restaurant;
 DROP TABLE IF EXISTS cuisine;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS friend;
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS users_info;
 
 
 -- Contains information about users of the app, including login
 -- and authentication and personal information.
-CREATE TABLE user (
+CREATE TABLE users_info (
     user_id	            INTEGER             AUTO_INCREMENT,
     -- screen username should be unique and reasonably short
     username		    VARCHAR(50)         NOT NULL    UNIQUE,
@@ -44,10 +44,10 @@ CREATE TABLE friend (
 
     PRIMARY KEY (user_id, friend_id),
     FOREIGN KEY (user_id) 
-        REFERENCES user(user_id)
+        REFERENCES users_info(user_id)
         ON DELETE CASCADE,
     FOREIGN KEY (friend_id) 
-        REFERENCES user(user_id)
+        REFERENCES users_info(user_id)
         ON DELETE CASCADE
 );
 
@@ -148,7 +148,7 @@ CREATE TABLE user_rating (
     PRIMARY KEY (user_id, restaurant_id),
     -- if any of these foreign keys are deleted, this ranking should be
     -- removed.
-    FOREIGN KEY (user_id) REFERENCES user(user_id)
+    FOREIGN KEY (user_id) REFERENCES users_info(user_id)
         ON DELETE CASCADE,
     FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id)
         ON DELETE CASCADE,
@@ -160,7 +160,7 @@ CREATE TABLE user_rating (
 -- to identify if restaurants are part of this chain.
 CREATE TABLE chain (
     chain_id         INTEGER         AUTO_INCREMENT,
-    chain_name       VARCHAR(100)    NOT NULL UNIQUE,
+    chain_name       VARCHAR(100)    NOT NULL,
     chain_website    VARCHAR(100),
 
     PRIMARY KEY (chain_id)
