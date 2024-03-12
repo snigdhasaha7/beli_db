@@ -160,7 +160,7 @@ CREATE TABLE user_rating (
 -- to identify if restaurants are part of this chain.
 CREATE TABLE chain (
     chain_id         INTEGER         AUTO_INCREMENT,
-    chain_name       VARCHAR(100)    NOT NULL,
+    chain_name       VARCHAR(100)    NOT NULL UNIQUE,
     chain_website    VARCHAR(100),
 
     PRIMARY KEY (chain_id)
