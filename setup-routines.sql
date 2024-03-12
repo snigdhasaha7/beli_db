@@ -35,7 +35,11 @@ CREATE VIEW chain_rests AS
     SELECT restaurant_id, restaurant_name, website FROM restaurant
         WHERE restaurant_name IN
             (SELECT restaurant_name FROM 
-                restaurant NATURAL LEFT JOIN in_cuisine NATURAL LEFT JOIN in_category
+                restaurant 
+                    NATURAL LEFT JOIN 
+                in_cuisine 
+                    NATURAL LEFT JOIN 
+                in_category
             GROUP BY restaurant_name, cuisine_id, category_id
             HAVING COUNT(*) > 1);  
 
