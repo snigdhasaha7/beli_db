@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS users_info
+DROP TABLE IF EXISTS users_temp;
 
-CREATE TABLE users_temp (
-    user_id	            INTEGER             AUTO_INCREMENT,
+CREATE TEMPORARY TABLE users_temp (
+    user_id	            INTEGER,
     username		    VARCHAR(50)         NOT NULL    UNIQUE,
     pwd                 VARCHAR(50),
     real_name           VARCHAR(50),
@@ -15,6 +15,3 @@ FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 
 
 -- TODO INSERT CURSOR FUNCTION HERE
-
-
-DROP TABLE users_temp;

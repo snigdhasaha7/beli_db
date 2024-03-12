@@ -4,6 +4,7 @@ DROP TRIGGER IF EXISTS trg_new_rating;
 DROP PROCEDURE IF EXISTS sp_cuisinetoprest_newrating;
 DROP TABLE IF EXISTS mv_top_restaurants_by_cuisine;
 DROP VIEW chain_rests;
+DROP PROCEDURE IF EXISTS sp_insert_users;
 
 -- UDF
 
@@ -43,6 +44,8 @@ CREATE VIEW chain_rests AS
             GROUP BY restaurant_name, cuisine_id, category_id
             HAVING COUNT(*) > 1);  
 
+-- PROCEDURE
+
 DELIMITER !
 CREATE PROCEDURE sp_find_chains()
 BEGIN 
@@ -54,6 +57,8 @@ BEGIN
 
     DECLARE cur CURSOR FOR
         SELECT restaurant_id, restaurant_name, website FROM chain_rests;
+
+    OPEN cur;
         
     WHILE NOT done DO
         FETCH cur INTO rest_id, rest_name, rest_web;
@@ -77,13 +82,6 @@ BEGIN
 END !
 
 DELIMITER ;
-
-
-
-
-
-
-
 
 -- Trigger with procedure on materialized view
 -- Have an MV of the highest average rating restaurants by cuisine
@@ -141,3 +139,32 @@ BEGIN
 END !
 DELIMITER ;
 
+
+DELIMITER ! 
+CREATE PROCEDURE sp_insert_users () 
+BEGIN 
+    DECLARE DONE INT DEFAULT 0;
+    DECLARE cur_user_id INT DEFAULT 0;
+    DECLARE cur_username VARCHAR(50);
+    DECLARE cur_pwd                 VARCHAR(50);
+    DECLARE cur_real_name           VARCHAR(50);
+    DECLARE cur_user_picture        VARCHAR(200);
+    DECLARE cur_user_location       VARCHAR(200);
+
+    DECLARE cur CURSOR FOR  
+        SELECT * FROM users_temp;
+
+    OPEN cur;
+
+    WHILE NOT done DO
+        FETCH cur INTO cur_user_id, cur_username, cur_pwd, cur_real_name,
+            cur_user_picture, cur_user_location;
+        IF NOT DONE THEN
+            CALL sp_add_user(cur_user_id, cur_username, cur_pwd,
+                cur_real_name, cur_user_picture, cur_user_location);
+        END IF;
+    END WHILE;
+    CLOSE cur;
+
+END ! 
+DELIMITER ;
