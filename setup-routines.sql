@@ -168,3 +168,5 @@ BEGIN
 
 END ! 
 DELIMITER ;
+
+CALL sp_insert_users();
