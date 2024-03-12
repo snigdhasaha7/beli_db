@@ -19,6 +19,8 @@ CREATE TABLE users_info (
     user_id	            INTEGER             AUTO_INCREMENT,
     -- screen username should be unique and reasonably short
     username		    VARCHAR(50)         NOT NULL    UNIQUE,
+    -- email should be reasonable length
+    email               VARCHAR(50),
     -- fixed size salt for authentication
     salt                CHAR(8)             NOT NULL,
     -- fixed size pwd hash for authentication 

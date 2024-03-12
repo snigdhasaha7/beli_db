@@ -1,7 +1,7 @@
-DROP FUNCTION make_salt; 
-DROP PROCEDURE sp_add_user;
-DROP FUNCTION authenticate; 
-DROP PROCEDURE sp_change_password;
+DROP FUNCTION IF EXISTS make_salt; 
+DROP PROCEDURE IF EXISTS sp_add_user;
+DROP FUNCTION IF EXISTS authenticate; 
+DROP PROCEDURE IF EXISTS sp_change_password;
 
 -- CS 121 24wi: Password Management (A6 and Final Project)
 
@@ -35,6 +35,7 @@ DELIMITER !
 CREATE PROCEDURE sp_add_user(
                   new_user_id  INT,
                   new_username VARCHAR(50),
+                  new_email VARCHAR(50),
                   password VARCHAR(50),
                   new_real_name VARCHAR(50),
                   new_user_picture VARCHAR(200),
@@ -53,9 +54,9 @@ BEGIN
 
   -- insertion into table
   INSERT INTO users_info
-    VALUES (new_user_id, new_username, new_salt, new_password_hash,
-            new_real_name, new_user_picture, new_user_location);
-  
+    VALUES (new_user_id, new_username, new_email,
+            new_salt, new_password_hash, new_real_name,
+            new_user_picture, new_user_location);
 END !
 DELIMITER ;
 
@@ -89,10 +90,12 @@ END !
 DELIMITER ;
 
 
--- Create a procedure sp_change_password to generate a new salt and change the given
--- user's password to the given password (after salting and hashing)
+-- Create a procedure sp_change_password to generate a new salt and 
+-- change the given user's password to the given password 
+-- (after salting and hashing)
 DELIMITER !
-CREATE PROCEDURE sp_change_password(username VARCHAR(20), new_password VARCHAR(20))
+CREATE PROCEDURE sp_change_password(username VARCHAR(20), 
+                                    new_password VARCHAR(20))
 BEGIN
   -- same idea as the add_user function
   DECLARE new_salt VARCHAR(20) DEFAULT '';

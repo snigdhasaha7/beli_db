@@ -144,8 +144,9 @@ DELIMITER !
 CREATE PROCEDURE sp_insert_users () 
 BEGIN 
     DECLARE DONE INT DEFAULT 0;
-    DECLARE cur_user_id INT DEFAULT 0;
-    DECLARE cur_username VARCHAR(50);
+    DECLARE cur_user_id             INT DEFAULT 0;
+    DECLARE cur_username            VARCHAR(50);
+    DECLARE cur_email               VARCHAR(50);
     DECLARE cur_pwd                 VARCHAR(50);
     DECLARE cur_real_name           VARCHAR(50);
     DECLARE cur_user_picture        VARCHAR(200);
@@ -154,13 +155,16 @@ BEGIN
     DECLARE cur CURSOR FOR  
         SELECT * FROM users_temp;
 
+    DECLARE CONTINUE HANDLER FOR SQLSTATE '02000'
+        SET DONE = 1;
+
     OPEN cur;
 
-    WHILE NOT done DO
-        FETCH cur INTO cur_user_id, cur_username, cur_pwd, cur_real_name,
-            cur_user_picture, cur_user_location;
+    WHILE NOT DONE DO
+        FETCH cur INTO cur_user_id, cur_username, cur_email, cur_pwd,
+                       cur_real_name, cur_user_picture, cur_user_location;
         IF NOT DONE THEN
-            CALL sp_add_user(cur_user_id, cur_username, cur_pwd,
+            CALL sp_add_user(cur_user_id, cur_username, cur_email, cur_pwd,
                 cur_real_name, cur_user_picture, cur_user_location);
         END IF;
     END WHILE;
