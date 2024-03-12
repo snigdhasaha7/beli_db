@@ -1,0 +1,1001 @@
+rating_id,rating,rating_description
+1,6.6,Food was pretty good but service was slow
+2,7.5,Service was really good and the food was okay
+3,1.4,This place sucks!
+4,3.4,The food was really bad
+5,4.3,The food was bland and the servers were unfriendly
+6,2.6,Service was exceedingly poor
+7,1.8,This place sucks!
+8,6.5,Food was pretty good but service was slow
+9,6.8,Food was pretty good but service was slow
+10,7.3,Service was really good and the food was okay
+11,9.7,I love this restaurant!
+12,2.8,Service was exceedingly poor
+13,3.1,The food was really bad
+14,0.4,This is the worst restaurant I've ever been to
+15,3.9,The food was really bad
+16,7.9,Service was really good and the food was okay
+17,1.0,This place sucks!
+18,5.0,It was just okay
+19,7.9,Service was really good and the food was okay
+20,1.1,This place sucks!
+21,2.9,Service was exceedingly poor
+22,5.5,It was just okay
+23,7.8,Service was really good and the food was okay
+24,7.7,Service was really good and the food was okay
+25,9.9,I love this restaurant!
+26,6.2,Food was pretty good but service was slow
+27,7.8,Service was really good and the food was okay
+28,5.0,It was just okay
+29,6.1,Food was pretty good but service was slow
+30,0.7,This is the worst restaurant I've ever been to
+31,3.3,The food was really bad
+32,0.1,This is the worst restaurant I've ever been to
+33,9.6,I love this restaurant!
+34,4.3,The food was bland and the servers were unfriendly
+35,4.8,The food was bland and the servers were unfriendly
+36,8.2,Food and service were great!
+37,7.9,Service was really good and the food was okay
+38,2.5,Service was exceedingly poor
+39,5.2,It was just okay
+40,5.0,It was just okay
+41,8.6,Food and service were great!
+42,2.7,Service was exceedingly poor
+43,3.0,The food was really bad
+44,5.5,It was just okay
+45,6.4,Food was pretty good but service was slow
+46,3.1,The food was really bad
+47,2.4,Service was exceedingly poor
+48,3.0,The food was really bad
+49,3.5,The food was really bad
+50,2.1,Service was exceedingly poor
+51,7.8,Service was really good and the food was okay
+52,1.1,This place sucks!
+53,1.3,This place sucks!
+54,1.3,This place sucks!
+55,5.7,It was just okay
+56,3.8,The food was really bad
+57,7.9,Service was really good and the food was okay
+58,6.8,Food was pretty good but service was slow
+59,2.6,Service was exceedingly poor
+60,4.1,The food was bland and the servers were unfriendly
+61,1.7,This place sucks!
+62,9.8,I love this restaurant!
+63,3.2,The food was really bad
+64,0.0,This is the worst restaurant I've ever been to
+65,1.2,This place sucks!
+66,4.1,The food was bland and the servers were unfriendly
+67,2.5,Service was exceedingly poor
+68,3.2,The food was really bad
+69,8.5,Food and service were great!
+70,2.1,Service was exceedingly poor
+71,6.9,Food was pretty good but service was slow
+72,0.7,This is the worst restaurant I've ever been to
+73,7.5,Service was really good and the food was okay
+74,0.9,This is the worst restaurant I've ever been to
+75,1.3,This place sucks!
+76,3.7,The food was really bad
+77,9.5,I love this restaurant!
+78,5.7,It was just okay
+79,7.5,Service was really good and the food was okay
+80,7.1,Service was really good and the food was okay
+81,0.8,This is the worst restaurant I've ever been to
+82,7.6,Service was really good and the food was okay
+83,2.7,Service was exceedingly poor
+84,4.6,The food was bland and the servers were unfriendly
+85,3.6,The food was really bad
+86,0.4,This is the worst restaurant I've ever been to
+87,3.2,The food was really bad
+88,3.0,The food was really bad
+89,1.8,This place sucks!
+90,5.0,It was just okay
+91,3.2,The food was really bad
+92,8.5,Food and service were great!
+93,3.3,The food was really bad
+94,5.1,It was just okay
+95,6.0,Food was pretty good but service was slow
+96,3.6,The food was really bad
+97,6.8,Food was pretty good but service was slow
+98,6.1,Food was pretty good but service was slow
+99,9.7,I love this restaurant!
+100,3.7,The food was really bad
+101,9.3,I love this restaurant!
+102,4.3,The food was bland and the servers were unfriendly
+103,1.7,This place sucks!
+104,3.1,The food was really bad
+105,1.8,This place sucks!
+106,5.6,It was just okay
+107,6.4,Food was pretty good but service was slow
+108,9.7,I love this restaurant!
+109,7.0,Service was really good and the food was okay
+110,2.9,Service was exceedingly poor
+111,7.4,Service was really good and the food was okay
+112,5.5,It was just okay
+113,7.0,Service was really good and the food was okay
+114,4.7,The food was bland and the servers were unfriendly
+115,4.3,The food was bland and the servers were unfriendly
+116,1.7,This place sucks!
+117,6.3,Food was pretty good but service was slow
+118,0.3,This is the worst restaurant I've ever been to
+119,2.3,Service was exceedingly poor
+120,3.2,The food was really bad
+121,0.0,This is the worst restaurant I've ever been to
+122,8.3,Food and service were great!
+123,9.3,I love this restaurant!
+124,6.5,Food was pretty good but service was slow
+125,2.5,Service was exceedingly poor
+126,6.9,Food was pretty good but service was slow
+127,8.4,Food and service were great!
+128,1.9,This place sucks!
+129,3.4,The food was really bad
+130,3.0,The food was really bad
+131,0.3,This is the worst restaurant I've ever been to
+132,2.9,Service was exceedingly poor
+133,4.1,The food was bland and the servers were unfriendly
+134,6.2,Food was pretty good but service was slow
+135,3.1,The food was really bad
+136,7.4,Service was really good and the food was okay
+137,3.8,The food was really bad
+138,1.4,This place sucks!
+139,5.2,It was just okay
+140,5.5,It was just okay
+141,5.7,It was just okay
+142,4.1,The food was bland and the servers were unfriendly
+143,4.9,The food was bland and the servers were unfriendly
+144,8.4,Food and service were great!
+145,4.9,The food was bland and the servers were unfriendly
+146,6.9,Food was pretty good but service was slow
+147,2.9,Service was exceedingly poor
+148,8.5,Food and service were great!
+149,3.2,The food was really bad
+150,5.9,It was just okay
+151,5.5,It was just okay
+152,2.8,Service was exceedingly poor
+153,0.6,This is the worst restaurant I've ever been to
+154,0.4,This is the worst restaurant I've ever been to
+155,6.1,Food was pretty good but service was slow
+156,5.3,It was just okay
+157,3.3,The food was really bad
+158,9.4,I love this restaurant!
+159,5.2,It was just okay
+160,1.8,This place sucks!
+161,9.4,I love this restaurant!
+162,3.6,The food was really bad
+163,9.6,I love this restaurant!
+164,5.7,It was just okay
+165,2.3,Service was exceedingly poor
+166,0.9,This is the worst restaurant I've ever been to
+167,7.9,Service was really good and the food was okay
+168,6.1,Food was pretty good but service was slow
+169,2.7,Service was exceedingly poor
+170,2.4,Service was exceedingly poor
+171,8.6,Food and service were great!
+172,9.2,I love this restaurant!
+173,2.6,Service was exceedingly poor
+174,8.0,Food and service were great!
+175,6.8,Food was pretty good but service was slow
+176,6.4,Food was pretty good but service was slow
+177,9.0,I love this restaurant!
+178,8.5,Food and service were great!
+179,1.4,This place sucks!
+180,1.8,This place sucks!
+181,8.2,Food and service were great!
+182,6.2,Food was pretty good but service was slow
+183,9.6,I love this restaurant!
+184,4.5,The food was bland and the servers were unfriendly
+185,7.5,Service was really good and the food was okay
+186,1.1,This place sucks!
+187,4.4,The food was bland and the servers were unfriendly
+188,6.2,Food was pretty good but service was slow
+189,0.2,This is the worst restaurant I've ever been to
+190,1.1,This place sucks!
+191,6.3,Food was pretty good but service was slow
+192,8.5,Food and service were great!
+193,0.9,This is the worst restaurant I've ever been to
+194,5.7,It was just okay
+195,3.4,The food was really bad
+196,0.1,This is the worst restaurant I've ever been to
+197,8.5,Food and service were great!
+198,6.6,Food was pretty good but service was slow
+199,7.9,Service was really good and the food was okay
+200,8.9,Food and service were great!
+201,0.7,This is the worst restaurant I've ever been to
+202,6.8,Food was pretty good but service was slow
+203,4.1,The food was bland and the servers were unfriendly
+204,5.1,It was just okay
+205,3.5,The food was really bad
+206,1.5,This place sucks!
+207,1.8,This place sucks!
+208,2.0,Service was exceedingly poor
+209,8.9,Food and service were great!
+210,9.0,I love this restaurant!
+211,2.1,Service was exceedingly poor
+212,10.0,This is the best restaurant in the city. Food and service are exceptional.
+213,8.0,Food and service were great!
+214,3.2,The food was really bad
+215,3.1,The food was really bad
+216,2.1,Service was exceedingly poor
+217,8.0,Food and service were great!
+218,0.6,This is the worst restaurant I've ever been to
+219,1.9,This place sucks!
+220,4.0,The food was bland and the servers were unfriendly
+221,4.1,The food was bland and the servers were unfriendly
+222,4.7,The food was bland and the servers were unfriendly
+223,4.4,The food was bland and the servers were unfriendly
+224,9.0,I love this restaurant!
+225,0.5,This is the worst restaurant I've ever been to
+226,4.5,The food was bland and the servers were unfriendly
+227,4.6,The food was bland and the servers were unfriendly
+228,5.1,It was just okay
+229,8.2,Food and service were great!
+230,1.6,This place sucks!
+231,8.4,Food and service were great!
+232,4.8,The food was bland and the servers were unfriendly
+233,0.2,This is the worst restaurant I've ever been to
+234,0.2,This is the worst restaurant I've ever been to
+235,9.6,I love this restaurant!
+236,5.2,It was just okay
+237,4.1,The food was bland and the servers were unfriendly
+238,7.5,Service was really good and the food was okay
+239,0.6,This is the worst restaurant I've ever been to
+240,7.8,Service was really good and the food was okay
+241,5.4,It was just okay
+242,3.2,The food was really bad
+243,8.6,Food and service were great!
+244,4.5,The food was bland and the servers were unfriendly
+245,5.3,It was just okay
+246,0.3,This is the worst restaurant I've ever been to
+247,8.5,Food and service were great!
+248,5.4,It was just okay
+249,6.6,Food was pretty good but service was slow
+250,6.1,Food was pretty good but service was slow
+251,5.0,It was just okay
+252,5.3,It was just okay
+253,1.5,This place sucks!
+254,2.0,Service was exceedingly poor
+255,0.9,This is the worst restaurant I've ever been to
+256,7.0,Service was really good and the food was okay
+257,4.2,The food was bland and the servers were unfriendly
+258,7.9,Service was really good and the food was okay
+259,2.6,Service was exceedingly poor
+260,2.3,Service was exceedingly poor
+261,9.7,I love this restaurant!
+262,7.0,Service was really good and the food was okay
+263,4.7,The food was bland and the servers were unfriendly
+264,1.8,This place sucks!
+265,1.2,This place sucks!
+266,4.2,The food was bland and the servers were unfriendly
+267,4.1,The food was bland and the servers were unfriendly
+268,9.6,I love this restaurant!
+269,0.9,This is the worst restaurant I've ever been to
+270,5.7,It was just okay
+271,3.3,The food was really bad
+272,5.4,It was just okay
+273,0.0,This is the worst restaurant I've ever been to
+274,9.6,I love this restaurant!
+275,4.3,The food was bland and the servers were unfriendly
+276,4.1,The food was bland and the servers were unfriendly
+277,3.3,The food was really bad
+278,5.5,It was just okay
+279,2.8,Service was exceedingly poor
+280,3.3,The food was really bad
+281,8.4,Food and service were great!
+282,0.8,This is the worst restaurant I've ever been to
+283,10.0,This is the best restaurant in the city. Food and service are exceptional.
+284,0.7,This is the worst restaurant I've ever been to
+285,2.0,Service was exceedingly poor
+286,4.2,The food was bland and the servers were unfriendly
+287,9.6,I love this restaurant!
+288,4.4,The food was bland and the servers were unfriendly
+289,3.4,The food was really bad
+290,0.4,This is the worst restaurant I've ever been to
+291,6.8,Food was pretty good but service was slow
+292,1.6,This place sucks!
+293,5.5,It was just okay
+294,0.6,This is the worst restaurant I've ever been to
+295,6.3,Food was pretty good but service was slow
+296,1.9,This place sucks!
+297,0.1,This is the worst restaurant I've ever been to
+298,9.2,I love this restaurant!
+299,5.0,It was just okay
+300,1.2,This place sucks!
+301,3.6,The food was really bad
+302,1.1,This place sucks!
+303,6.3,Food was pretty good but service was slow
+304,3.2,The food was really bad
+305,0.9,This is the worst restaurant I've ever been to
+306,9.6,I love this restaurant!
+307,5.7,It was just okay
+308,0.7,This is the worst restaurant I've ever been to
+309,9.6,I love this restaurant!
+310,4.1,The food was bland and the servers were unfriendly
+311,0.8,This is the worst restaurant I've ever been to
+312,1.9,This place sucks!
+313,2.5,Service was exceedingly poor
+314,9.4,I love this restaurant!
+315,5.4,It was just okay
+316,7.0,Service was really good and the food was okay
+317,4.1,The food was bland and the servers were unfriendly
+318,5.3,It was just okay
+319,3.8,The food was really bad
+320,10.0,This is the best restaurant in the city. Food and service are exceptional.
+321,5.8,It was just okay
+322,8.7,Food and service were great!
+323,2.7,Service was exceedingly poor
+324,3.0,The food was really bad
+325,9.1,I love this restaurant!
+326,7.2,Service was really good and the food was okay
+327,9.9,I love this restaurant!
+328,7.5,Service was really good and the food was okay
+329,8.4,Food and service were great!
+330,1.0,This place sucks!
+331,4.7,The food was bland and the servers were unfriendly
+332,6.2,Food was pretty good but service was slow
+333,1.6,This place sucks!
+334,4.0,The food was bland and the servers were unfriendly
+335,6.4,Food was pretty good but service was slow
+336,3.2,The food was really bad
+337,8.8,Food and service were great!
+338,8.1,Food and service were great!
+339,0.0,This is the worst restaurant I've ever been to
+340,9.0,I love this restaurant!
+341,10.0,This is the best restaurant in the city. Food and service are exceptional.
+342,6.9,Food was pretty good but service was slow
+343,5.8,It was just okay
+344,5.2,It was just okay
+345,1.8,This place sucks!
+346,3.3,The food was really bad
+347,3.6,The food was really bad
+348,7.1,Service was really good and the food was okay
+349,5.4,It was just okay
+350,6.5,Food was pretty good but service was slow
+351,6.0,Food was pretty good but service was slow
+352,0.0,This is the worst restaurant I've ever been to
+353,9.6,I love this restaurant!
+354,5.2,It was just okay
+355,0.8,This is the worst restaurant I've ever been to
+356,3.4,The food was really bad
+357,5.1,It was just okay
+358,1.1,This place sucks!
+359,1.2,This place sucks!
+360,3.7,The food was really bad
+361,1.3,This place sucks!
+362,8.2,Food and service were great!
+363,2.7,Service was exceedingly poor
+364,3.5,The food was really bad
+365,3.7,The food was really bad
+366,6.1,Food was pretty good but service was slow
+367,2.0,Service was exceedingly poor
+368,3.1,The food was really bad
+369,7.7,Service was really good and the food was okay
+370,3.5,The food was really bad
+371,5.3,It was just okay
+372,4.1,The food was bland and the servers were unfriendly
+373,4.3,The food was bland and the servers were unfriendly
+374,9.8,I love this restaurant!
+375,8.9,Food and service were great!
+376,6.5,Food was pretty good but service was slow
+377,2.5,Service was exceedingly poor
+378,9.9,I love this restaurant!
+379,1.1,This place sucks!
+380,1.3,This place sucks!
+381,4.3,The food was bland and the servers were unfriendly
+382,2.0,Service was exceedingly poor
+383,4.5,The food was bland and the servers were unfriendly
+384,8.0,Food and service were great!
+385,7.8,Service was really good and the food was okay
+386,2.9,Service was exceedingly poor
+387,4.1,The food was bland and the servers were unfriendly
+388,8.0,Food and service were great!
+389,4.1,The food was bland and the servers were unfriendly
+390,2.9,Service was exceedingly poor
+391,5.2,It was just okay
+392,6.2,Food was pretty good but service was slow
+393,5.8,It was just okay
+394,7.6,Service was really good and the food was okay
+395,9.3,I love this restaurant!
+396,5.7,It was just okay
+397,8.6,Food and service were great!
+398,6.1,Food was pretty good but service was slow
+399,0.8,This is the worst restaurant I've ever been to
+400,7.6,Service was really good and the food was okay
+401,0.7,This is the worst restaurant I've ever been to
+402,3.2,The food was really bad
+403,1.4,This place sucks!
+404,4.0,The food was bland and the servers were unfriendly
+405,2.2,Service was exceedingly poor
+406,2.3,Service was exceedingly poor
+407,8.5,Food and service were great!
+408,8.6,Food and service were great!
+409,2.3,Service was exceedingly poor
+410,1.5,This place sucks!
+411,3.7,The food was really bad
+412,8.0,Food and service were great!
+413,7.8,Service was really good and the food was okay
+414,2.2,Service was exceedingly poor
+415,5.0,It was just okay
+416,5.3,It was just okay
+417,4.3,The food was bland and the servers were unfriendly
+418,1.7,This place sucks!
+419,1.8,This place sucks!
+420,0.7,This is the worst restaurant I've ever been to
+421,7.1,Service was really good and the food was okay
+422,9.6,I love this restaurant!
+423,2.5,Service was exceedingly poor
+424,0.7,This is the worst restaurant I've ever been to
+425,7.7,Service was really good and the food was okay
+426,3.4,The food was really bad
+427,9.9,I love this restaurant!
+428,5.8,It was just okay
+429,0.9,This is the worst restaurant I've ever been to
+430,2.7,Service was exceedingly poor
+431,6.4,Food was pretty good but service was slow
+432,0.6,This is the worst restaurant I've ever been to
+433,8.3,Food and service were great!
+434,7.9,Service was really good and the food was okay
+435,7.2,Service was really good and the food was okay
+436,0.5,This is the worst restaurant I've ever been to
+437,8.5,Food and service were great!
+438,9.5,I love this restaurant!
+439,3.4,The food was really bad
+440,6.4,Food was pretty good but service was slow
+441,0.5,This is the worst restaurant I've ever been to
+442,5.7,It was just okay
+443,1.5,This place sucks!
+444,1.9,This place sucks!
+445,6.2,Food was pretty good but service was slow
+446,4.5,The food was bland and the servers were unfriendly
+447,0.3,This is the worst restaurant I've ever been to
+448,7.8,Service was really good and the food was okay
+449,6.4,Food was pretty good but service was slow
+450,7.9,Service was really good and the food was okay
+451,7.5,Service was really good and the food was okay
+452,8.5,Food and service were great!
+453,3.9,The food was really bad
+454,5.2,It was just okay
+455,2.0,Service was exceedingly poor
+456,4.6,The food was bland and the servers were unfriendly
+457,9.0,I love this restaurant!
+458,5.3,It was just okay
+459,0.6,This is the worst restaurant I've ever been to
+460,7.3,Service was really good and the food was okay
+461,0.4,This is the worst restaurant I've ever been to
+462,2.6,Service was exceedingly poor
+463,1.7,This place sucks!
+464,3.1,The food was really bad
+465,3.5,The food was really bad
+466,5.6,It was just okay
+467,3.6,The food was really bad
+468,5.6,It was just okay
+469,0.7,This is the worst restaurant I've ever been to
+470,7.3,Service was really good and the food was okay
+471,1.8,This place sucks!
+472,3.6,The food was really bad
+473,8.1,Food and service were great!
+474,1.7,This place sucks!
+475,2.5,Service was exceedingly poor
+476,7.1,Service was really good and the food was okay
+477,3.9,The food was really bad
+478,4.9,The food was bland and the servers were unfriendly
+479,8.0,Food and service were great!
+480,8.4,Food and service were great!
+481,5.7,It was just okay
+482,3.7,The food was really bad
+483,2.0,Service was exceedingly poor
+484,5.8,It was just okay
+485,3.9,The food was really bad
+486,9.9,I love this restaurant!
+487,6.3,Food was pretty good but service was slow
+488,4.2,The food was bland and the servers were unfriendly
+489,2.8,Service was exceedingly poor
+490,4.7,The food was bland and the servers were unfriendly
+491,0.7,This is the worst restaurant I've ever been to
+492,0.4,This is the worst restaurant I've ever been to
+493,3.2,The food was really bad
+494,6.0,Food was pretty good but service was slow
+495,3.5,The food was really bad
+496,4.5,The food was bland and the servers were unfriendly
+497,6.8,Food was pretty good but service was slow
+498,5.9,It was just okay
+499,7.3,Service was really good and the food was okay
+500,3.2,The food was really bad
+501,1.5,This place sucks!
+502,1.7,This place sucks!
+503,6.8,Food was pretty good but service was slow
+504,6.4,Food was pretty good but service was slow
+505,0.2,This is the worst restaurant I've ever been to
+506,4.7,The food was bland and the servers were unfriendly
+507,9.1,I love this restaurant!
+508,3.9,The food was really bad
+509,4.1,The food was bland and the servers were unfriendly
+510,6.0,Food was pretty good but service was slow
+511,2.9,Service was exceedingly poor
+512,0.6,This is the worst restaurant I've ever been to
+513,9.0,I love this restaurant!
+514,4.9,The food was bland and the servers were unfriendly
+515,8.4,Food and service were great!
+516,9.8,I love this restaurant!
+517,6.3,Food was pretty good but service was slow
+518,7.8,Service was really good and the food was okay
+519,2.6,Service was exceedingly poor
+520,5.9,It was just okay
+521,6.9,Food was pretty good but service was slow
+522,6.0,Food was pretty good but service was slow
+523,3.9,The food was really bad
+524,9.1,I love this restaurant!
+525,9.1,I love this restaurant!
+526,4.1,The food was bland and the servers were unfriendly
+527,9.0,I love this restaurant!
+528,7.3,Service was really good and the food was okay
+529,5.8,It was just okay
+530,9.0,I love this restaurant!
+531,0.3,This is the worst restaurant I've ever been to
+532,9.4,I love this restaurant!
+533,6.3,Food was pretty good but service was slow
+534,3.0,The food was really bad
+535,0.7,This is the worst restaurant I've ever been to
+536,2.7,Service was exceedingly poor
+537,4.1,The food was bland and the servers were unfriendly
+538,7.3,Service was really good and the food was okay
+539,6.7,Food was pretty good but service was slow
+540,4.0,The food was bland and the servers were unfriendly
+541,2.2,Service was exceedingly poor
+542,5.1,It was just okay
+543,8.7,Food and service were great!
+544,8.4,Food and service were great!
+545,6.3,Food was pretty good but service was slow
+546,4.7,The food was bland and the servers were unfriendly
+547,1.3,This place sucks!
+548,4.0,The food was bland and the servers were unfriendly
+549,4.6,The food was bland and the servers were unfriendly
+550,5.8,It was just okay
+551,6.1,Food was pretty good but service was slow
+552,4.5,The food was bland and the servers were unfriendly
+553,3.3,The food was really bad
+554,3.1,The food was really bad
+555,7.5,Service was really good and the food was okay
+556,0.6,This is the worst restaurant I've ever been to
+557,0.2,This is the worst restaurant I've ever been to
+558,7.8,Service was really good and the food was okay
+559,1.5,This place sucks!
+560,3.4,The food was really bad
+561,4.0,The food was bland and the servers were unfriendly
+562,5.6,It was just okay
+563,3.7,The food was really bad
+564,4.4,The food was bland and the servers were unfriendly
+565,1.9,This place sucks!
+566,7.3,Service was really good and the food was okay
+567,3.8,The food was really bad
+568,9.9,I love this restaurant!
+569,6.3,Food was pretty good but service was slow
+570,2.4,Service was exceedingly poor
+571,2.2,Service was exceedingly poor
+572,4.0,The food was bland and the servers were unfriendly
+573,3.4,The food was really bad
+574,3.0,The food was really bad
+575,2.0,Service was exceedingly poor
+576,1.2,This place sucks!
+577,6.7,Food was pretty good but service was slow
+578,2.4,Service was exceedingly poor
+579,3.1,The food was really bad
+580,4.3,The food was bland and the servers were unfriendly
+581,2.9,Service was exceedingly poor
+582,7.5,Service was really good and the food was okay
+583,2.7,Service was exceedingly poor
+584,1.9,This place sucks!
+585,4.7,The food was bland and the servers were unfriendly
+586,1.3,This place sucks!
+587,1.4,This place sucks!
+588,6.0,Food was pretty good but service was slow
+589,2.5,Service was exceedingly poor
+590,7.0,Service was really good and the food was okay
+591,0.4,This is the worst restaurant I've ever been to
+592,2.6,Service was exceedingly poor
+593,8.9,Food and service were great!
+594,9.8,I love this restaurant!
+595,7.2,Service was really good and the food was okay
+596,9.9,I love this restaurant!
+597,7.4,Service was really good and the food was okay
+598,5.2,It was just okay
+599,4.1,The food was bland and the servers were unfriendly
+600,3.4,The food was really bad
+601,4.0,The food was bland and the servers were unfriendly
+602,3.0,The food was really bad
+603,5.5,It was just okay
+604,0.7,This is the worst restaurant I've ever been to
+605,7.3,Service was really good and the food was okay
+606,2.7,Service was exceedingly poor
+607,3.5,The food was really bad
+608,3.7,The food was really bad
+609,0.3,This is the worst restaurant I've ever been to
+610,8.5,Food and service were great!
+611,4.4,The food was bland and the servers were unfriendly
+612,8.0,Food and service were great!
+613,5.2,It was just okay
+614,4.6,The food was bland and the servers were unfriendly
+615,8.6,Food and service were great!
+616,8.5,Food and service were great!
+617,0.2,This is the worst restaurant I've ever been to
+618,1.4,This place sucks!
+619,7.2,Service was really good and the food was okay
+620,7.0,Service was really good and the food was okay
+621,1.8,This place sucks!
+622,1.0,This place sucks!
+623,3.7,The food was really bad
+624,8.7,Food and service were great!
+625,1.7,This place sucks!
+626,4.6,The food was bland and the servers were unfriendly
+627,6.5,Food was pretty good but service was slow
+628,3.5,The food was really bad
+629,4.7,The food was bland and the servers were unfriendly
+630,2.8,Service was exceedingly poor
+631,5.7,It was just okay
+632,0.4,This is the worst restaurant I've ever been to
+633,1.8,This place sucks!
+634,0.6,This is the worst restaurant I've ever been to
+635,1.3,This place sucks!
+636,1.9,This place sucks!
+637,2.3,Service was exceedingly poor
+638,6.3,Food was pretty good but service was slow
+639,5.8,It was just okay
+640,4.2,The food was bland and the servers were unfriendly
+641,9.3,I love this restaurant!
+642,8.0,Food and service were great!
+643,10.0,This is the best restaurant in the city. Food and service are exceptional.
+644,0.6,This is the worst restaurant I've ever been to
+645,6.4,Food was pretty good but service was slow
+646,5.0,It was just okay
+647,7.0,Service was really good and the food was okay
+648,9.9,I love this restaurant!
+649,8.8,Food and service were great!
+650,7.4,Service was really good and the food was okay
+651,5.3,It was just okay
+652,1.6,This place sucks!
+653,4.3,The food was bland and the servers were unfriendly
+654,8.2,Food and service were great!
+655,7.8,Service was really good and the food was okay
+656,3.2,The food was really bad
+657,2.5,Service was exceedingly poor
+658,8.0,Food and service were great!
+659,2.7,Service was exceedingly poor
+660,2.1,Service was exceedingly poor
+661,0.1,This is the worst restaurant I've ever been to
+662,7.6,Service was really good and the food was okay
+663,3.9,The food was really bad
+664,6.6,Food was pretty good but service was slow
+665,9.1,I love this restaurant!
+666,1.9,This place sucks!
+667,9.0,I love this restaurant!
+668,8.0,Food and service were great!
+669,3.0,The food was really bad
+670,9.3,I love this restaurant!
+671,9.9,I love this restaurant!
+672,4.3,The food was bland and the servers were unfriendly
+673,3.5,The food was really bad
+674,3.6,The food was really bad
+675,1.8,This place sucks!
+676,3.4,The food was really bad
+677,9.4,I love this restaurant!
+678,5.4,It was just okay
+679,6.8,Food was pretty good but service was slow
+680,5.5,It was just okay
+681,0.3,This is the worst restaurant I've ever been to
+682,3.0,The food was really bad
+683,2.6,Service was exceedingly poor
+684,2.2,Service was exceedingly poor
+685,8.9,Food and service were great!
+686,7.6,Service was really good and the food was okay
+687,7.0,Service was really good and the food was okay
+688,0.4,This is the worst restaurant I've ever been to
+689,5.2,It was just okay
+690,8.6,Food and service were great!
+691,2.4,Service was exceedingly poor
+692,8.6,Food and service were great!
+693,9.8,I love this restaurant!
+694,1.5,This place sucks!
+695,0.3,This is the worst restaurant I've ever been to
+696,2.7,Service was exceedingly poor
+697,9.8,I love this restaurant!
+698,0.9,This is the worst restaurant I've ever been to
+699,6.6,Food was pretty good but service was slow
+700,4.6,The food was bland and the servers were unfriendly
+701,7.2,Service was really good and the food was okay
+702,5.6,It was just okay
+703,0.6,This is the worst restaurant I've ever been to
+704,2.7,Service was exceedingly poor
+705,3.0,The food was really bad
+706,5.9,It was just okay
+707,9.9,I love this restaurant!
+708,5.5,It was just okay
+709,6.6,Food was pretty good but service was slow
+710,7.3,Service was really good and the food was okay
+711,1.1,This place sucks!
+712,4.7,The food was bland and the servers were unfriendly
+713,5.9,It was just okay
+714,6.7,Food was pretty good but service was slow
+715,0.3,This is the worst restaurant I've ever been to
+716,4.1,The food was bland and the servers were unfriendly
+717,4.7,The food was bland and the servers were unfriendly
+718,6.5,Food was pretty good but service was slow
+719,0.4,This is the worst restaurant I've ever been to
+720,1.5,This place sucks!
+721,7.7,Service was really good and the food was okay
+722,3.4,The food was really bad
+723,1.3,This place sucks!
+724,8.0,Food and service were great!
+725,6.7,Food was pretty good but service was slow
+726,7.1,Service was really good and the food was okay
+727,5.3,It was just okay
+728,4.1,The food was bland and the servers were unfriendly
+729,4.4,The food was bland and the servers were unfriendly
+730,2.3,Service was exceedingly poor
+731,5.0,It was just okay
+732,0.9,This is the worst restaurant I've ever been to
+733,9.2,I love this restaurant!
+734,4.5,The food was bland and the servers were unfriendly
+735,1.8,This place sucks!
+736,3.3,The food was really bad
+737,9.3,I love this restaurant!
+738,1.4,This place sucks!
+739,5.5,It was just okay
+740,5.6,It was just okay
+741,3.3,The food was really bad
+742,4.7,The food was bland and the servers were unfriendly
+743,5.3,It was just okay
+744,0.8,This is the worst restaurant I've ever been to
+745,0.1,This is the worst restaurant I've ever been to
+746,9.5,I love this restaurant!
+747,5.1,It was just okay
+748,4.2,The food was bland and the servers were unfriendly
+749,6.1,Food was pretty good but service was slow
+750,7.9,Service was really good and the food was okay
+751,1.7,This place sucks!
+752,1.0,This place sucks!
+753,2.4,Service was exceedingly poor
+754,2.6,Service was exceedingly poor
+755,3.0,The food was really bad
+756,8.4,Food and service were great!
+757,6.4,Food was pretty good but service was slow
+758,6.2,Food was pretty good but service was slow
+759,5.2,It was just okay
+760,4.0,The food was bland and the servers were unfriendly
+761,7.9,Service was really good and the food was okay
+762,7.6,Service was really good and the food was okay
+763,9.1,I love this restaurant!
+764,4.5,The food was bland and the servers were unfriendly
+765,8.1,Food and service were great!
+766,7.5,Service was really good and the food was okay
+767,6.1,Food was pretty good but service was slow
+768,5.0,It was just okay
+769,5.0,It was just okay
+770,1.3,This place sucks!
+771,3.6,The food was really bad
+772,9.6,I love this restaurant!
+773,3.2,The food was really bad
+774,5.8,It was just okay
+775,3.4,The food was really bad
+776,9.1,I love this restaurant!
+777,8.7,Food and service were great!
+778,1.2,This place sucks!
+779,0.9,This is the worst restaurant I've ever been to
+780,3.6,The food was really bad
+781,1.5,This place sucks!
+782,9.9,I love this restaurant!
+783,3.5,The food was really bad
+784,4.3,The food was bland and the servers were unfriendly
+785,9.7,I love this restaurant!
+786,5.2,It was just okay
+787,0.6,This is the worst restaurant I've ever been to
+788,8.6,Food and service were great!
+789,1.1,This place sucks!
+790,2.4,Service was exceedingly poor
+791,3.8,The food was really bad
+792,6.4,Food was pretty good but service was slow
+793,6.4,Food was pretty good but service was slow
+794,0.5,This is the worst restaurant I've ever been to
+795,5.2,It was just okay
+796,4.1,The food was bland and the servers were unfriendly
+797,2.2,Service was exceedingly poor
+798,1.0,This place sucks!
+799,5.5,It was just okay
+800,1.5,This place sucks!
+801,1.3,This place sucks!
+802,7.8,Service was really good and the food was okay
+803,4.2,The food was bland and the servers were unfriendly
+804,5.1,It was just okay
+805,1.9,This place sucks!
+806,6.5,Food was pretty good but service was slow
+807,6.3,Food was pretty good but service was slow
+808,4.1,The food was bland and the servers were unfriendly
+809,1.8,This place sucks!
+810,6.5,Food was pretty good but service was slow
+811,1.1,This place sucks!
+812,2.3,Service was exceedingly poor
+813,8.7,Food and service were great!
+814,1.0,This place sucks!
+815,2.8,Service was exceedingly poor
+816,7.4,Service was really good and the food was okay
+817,9.1,I love this restaurant!
+818,7.1,Service was really good and the food was okay
+819,2.6,Service was exceedingly poor
+820,6.9,Food was pretty good but service was slow
+821,4.5,The food was bland and the servers were unfriendly
+822,9.5,I love this restaurant!
+823,0.4,This is the worst restaurant I've ever been to
+824,8.7,Food and service were great!
+825,6.6,Food was pretty good but service was slow
+826,6.3,Food was pretty good but service was slow
+827,7.4,Service was really good and the food was okay
+828,4.6,The food was bland and the servers were unfriendly
+829,1.0,This place sucks!
+830,5.5,It was just okay
+831,5.3,It was just okay
+832,8.1,Food and service were great!
+833,3.0,The food was really bad
+834,3.3,The food was really bad
+835,8.0,Food and service were great!
+836,4.9,The food was bland and the servers were unfriendly
+837,3.5,The food was really bad
+838,4.3,The food was bland and the servers were unfriendly
+839,6.8,Food was pretty good but service was slow
+840,3.7,The food was really bad
+841,1.7,This place sucks!
+842,6.9,Food was pretty good but service was slow
+843,9.8,I love this restaurant!
+844,4.7,The food was bland and the servers were unfriendly
+845,3.8,The food was really bad
+846,5.1,It was just okay
+847,7.3,Service was really good and the food was okay
+848,2.4,Service was exceedingly poor
+849,4.8,The food was bland and the servers were unfriendly
+850,4.3,The food was bland and the servers were unfriendly
+851,4.6,The food was bland and the servers were unfriendly
+852,5.5,It was just okay
+853,1.7,This place sucks!
+854,9.4,I love this restaurant!
+855,1.0,This place sucks!
+856,4.0,The food was bland and the servers were unfriendly
+857,0.0,This is the worst restaurant I've ever been to
+858,1.4,This place sucks!
+859,6.1,Food was pretty good but service was slow
+860,5.2,It was just okay
+861,8.2,Food and service were great!
+862,2.5,Service was exceedingly poor
+863,8.0,Food and service were great!
+864,6.1,Food was pretty good but service was slow
+865,4.5,The food was bland and the servers were unfriendly
+866,1.7,This place sucks!
+867,7.3,Service was really good and the food was okay
+868,8.0,Food and service were great!
+869,6.4,Food was pretty good but service was slow
+870,7.3,Service was really good and the food was okay
+871,3.6,The food was really bad
+872,2.5,Service was exceedingly poor
+873,6.3,Food was pretty good but service was slow
+874,8.2,Food and service were great!
+875,7.2,Service was really good and the food was okay
+876,8.1,Food and service were great!
+877,0.0,This is the worst restaurant I've ever been to
+878,1.8,This place sucks!
+879,8.1,Food and service were great!
+880,0.9,This is the worst restaurant I've ever been to
+881,9.4,I love this restaurant!
+882,9.6,I love this restaurant!
+883,1.6,This place sucks!
+884,6.1,Food was pretty good but service was slow
+885,4.8,The food was bland and the servers were unfriendly
+886,0.5,This is the worst restaurant I've ever been to
+887,9.0,I love this restaurant!
+888,7.1,Service was really good and the food was okay
+889,7.2,Service was really good and the food was okay
+890,0.4,This is the worst restaurant I've ever been to
+891,3.5,The food was really bad
+892,4.9,The food was bland and the servers were unfriendly
+893,5.4,It was just okay
+894,4.7,The food was bland and the servers were unfriendly
+895,3.1,The food was really bad
+896,2.4,Service was exceedingly poor
+897,1.9,This place sucks!
+898,4.1,The food was bland and the servers were unfriendly
+899,8.0,Food and service were great!
+900,4.5,The food was bland and the servers were unfriendly
+901,6.2,Food was pretty good but service was slow
+902,3.6,The food was really bad
+903,4.7,The food was bland and the servers were unfriendly
+904,0.9,This is the worst restaurant I've ever been to
+905,4.5,The food was bland and the servers were unfriendly
+906,1.8,This place sucks!
+907,4.4,The food was bland and the servers were unfriendly
+908,3.2,The food was really bad
+909,2.7,Service was exceedingly poor
+910,2.7,Service was exceedingly poor
+911,3.7,The food was really bad
+912,5.9,It was just okay
+913,2.6,Service was exceedingly poor
+914,5.2,It was just okay
+915,1.0,This place sucks!
+916,7.5,Service was really good and the food was okay
+917,2.0,Service was exceedingly poor
+918,9.7,I love this restaurant!
+919,8.5,Food and service were great!
+920,9.1,I love this restaurant!
+921,3.0,The food was really bad
+922,1.2,This place sucks!
+923,6.7,Food was pretty good but service was slow
+924,3.1,The food was really bad
+925,7.0,Service was really good and the food was okay
+926,3.4,The food was really bad
+927,8.6,Food and service were great!
+928,5.5,It was just okay
+929,2.5,Service was exceedingly poor
+930,9.4,I love this restaurant!
+931,8.9,Food and service were great!
+932,3.0,The food was really bad
+933,7.4,Service was really good and the food was okay
+934,5.0,It was just okay
+935,3.9,The food was really bad
+936,4.0,The food was bland and the servers were unfriendly
+937,9.1,I love this restaurant!
+938,0.7,This is the worst restaurant I've ever been to
+939,8.7,Food and service were great!
+940,7.1,Service was really good and the food was okay
+941,0.3,This is the worst restaurant I've ever been to
+942,5.3,It was just okay
+943,9.6,I love this restaurant!
+944,5.6,It was just okay
+945,5.9,It was just okay
+946,9.4,I love this restaurant!
+947,4.1,The food was bland and the servers were unfriendly
+948,6.5,Food was pretty good but service was slow
+949,8.6,Food and service were great!
+950,9.1,I love this restaurant!
+951,9.8,I love this restaurant!
+952,0.8,This is the worst restaurant I've ever been to
+953,5.7,It was just okay
+954,5.7,It was just okay
+955,2.0,Service was exceedingly poor
+956,8.4,Food and service were great!
+957,8.4,Food and service were great!
+958,2.6,Service was exceedingly poor
+959,9.5,I love this restaurant!
+960,1.7,This place sucks!
+961,2.8,Service was exceedingly poor
+962,1.7,This place sucks!
+963,8.5,Food and service were great!
+964,3.2,The food was really bad
+965,3.6,The food was really bad
+966,6.7,Food was pretty good but service was slow
+967,5.0,It was just okay
+968,5.9,It was just okay
+969,9.8,I love this restaurant!
+970,3.2,The food was really bad
+971,8.4,Food and service were great!
+972,7.2,Service was really good and the food was okay
+973,2.5,Service was exceedingly poor
+974,5.5,It was just okay
+975,5.9,It was just okay
+976,6.9,Food was pretty good but service was slow
+977,0.6,This is the worst restaurant I've ever been to
+978,9.4,I love this restaurant!
+979,8.5,Food and service were great!
+980,1.0,This place sucks!
+981,4.7,The food was bland and the servers were unfriendly
+982,1.9,This place sucks!
+983,1.7,This place sucks!
+984,5.6,It was just okay
+985,1.8,This place sucks!
+986,3.3,The food was really bad
+987,8.0,Food and service were great!
+988,7.3,Service was really good and the food was okay
+989,9.2,I love this restaurant!
+990,1.0,This place sucks!
+991,3.4,The food was really bad
+992,5.6,It was just okay
+993,9.8,I love this restaurant!
+994,4.7,The food was bland and the servers were unfriendly
+995,7.5,Service was really good and the food was okay
+996,7.0,Service was really good and the food was okay
+997,8.7,Food and service were great!
+998,0.4,This is the worst restaurant I've ever been to
+999,1.8,This place sucks!
+1000,5.2,It was just okay
