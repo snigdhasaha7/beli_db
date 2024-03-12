@@ -77,7 +77,7 @@ def show_options(username):
         print('(l) - location')
         choice = input('Enter an option: ').lower()
         val = input(f'Enter a new value for {choice}')
-        if choice != 'password':
+        if choice != 'pw':
             val = val.lower() 
         update_user_profile(username, choice, val) 
     elif ans == 'r': 
@@ -99,7 +99,7 @@ def show_options(username):
         print('(d) - description')
         choice = input('Enter a choice: ').lower()
         val = input(f'Enter a new value for {choice}')
-        if choice == ranking:
+        if choice == 'r':
             val = float(val)
     elif ans == 'a':
         friend_user = input('Enter a username to add to friends:').lower() 
@@ -123,9 +123,13 @@ def update_user_profile(username, update_param, update_val):
     cursor = conn.cursor()
     # Remember to pass arguments as a tuple like so to prevent SQL
     # injection.
-    sql = 'UPDATE users SET\
-          \'%s\' = \'%s\' \
-          WHERE username = \'%s\';' % (update_param, update_val, username)
+    if update_param == 'pw':
+        sql = 'CALL sp_change_password(\'%s\', \'%s\');' \
+                % (username, update_val)
+    else:
+        sql = 'UPDATE users SET\
+            \'%s\' = \'%s\' \
+            WHERE username = \'%s\';' % (update_param, update_val, username)
     
     if update_param == 'username':
         try:
@@ -151,11 +155,11 @@ def update_user_profile(username, update_param, update_val):
                 sys.stderr(err)
                 sys.exit(1)
             else:
-                sys.stderr('An error occurred, give something useful for clients...')
+                sys.stderr(f'An error occurred updating your profile.')
 
 def get_user_id(username):
     cursor = conn.cursor()
-    user_id_query = 'SELECT user_id FROM users\
+    user_id_query = 'SELECT user_id FROM users_info\
         WHERE username = \'%s\';' % (username)
     try:
         cursor.execute(user_id_query)
@@ -171,7 +175,7 @@ def get_user_id(username):
 
 def get_rest_id(restaurant_name, location):
     cursor = conn.cursor()
-    rest_id_query = 'SELECT restaurant_id FROM restaurants\
+    rest_id_query = 'SELECT restaurant_id FROM restaurant\
         WHERE restaurant_name = \'%s\' AND location = \'%s\';' \
             % (restaurant_name, location)
     try:
@@ -196,8 +200,8 @@ def rank_a_restaurant(username, rest_name, location, ranking, description):
 
     # TODO: in the backend, there should be a trigger to update 
     # cuisines, categories, average ratings
-    sql = "INSERT INTO ratings VALUES \
-        (\'%s\', \'%s\', \'%f\', \'%s\');" \
+    sql = "INSERT INTO rating (rating, rating_description) VALUES \
+        (\'%f\', \'%s\');" \
             % (user_id, rest_id, ranking, description)
     
     try:
@@ -209,6 +213,33 @@ def rank_a_restaurant(username, rest_name, location, ranking, description):
             sys.exit(1)
         else:
             sys.stderr('An error occurred when ranking the restaurant')
+    
+    rating_id_sql = "SELECT LAST_INSERT_ID();"
+
+    try:
+        cursor.execute(rating_id_sql)
+        rating_id = cursor.fetchone() 
+    except mysql.connector.Error as err:
+        # If you're testing, it's helpful to see more details printed.
+        if DEBUG:
+            sys.stderr(err)
+            sys.exit(1)
+        else:
+            sys.stderr('An error occurred')
+    
+    rating_sql = "INSERT INTO user_rating VALUES (\'%d\', \'%d\', \'%d\');" \
+                    % (user_id, rest_id, rating_id)
+    
+    try:
+        cursor.execute(rating_sql)
+    except mysql.connector.Error as err:
+        # If you're testing, it's helpful to see more details printed.
+        if DEBUG:
+            sys.stderr(err)
+            sys.exit(1)
+        else:
+            sys.stderr('An error occurred')
+
 
 def update_a_ranking(username, rest_name, location, param, new_val):
     cursor = conn.cursor()
@@ -218,22 +249,33 @@ def update_a_ranking(username, rest_name, location, param, new_val):
     user_id = get_user_id(username)
     rest_id = get_rest_id(rest_name,location)
 
-    # TODO: in the backend, there should be a trigger to update 
-    # cuisines, categories, average ratings
-
-    sql = 'UPDATE ratings SET \
-            %s = \'%s\' \
+    id_sql = 'SELECT rating_id FROM user_rating \
             WHERE user_id = \'%s\' AND restaurant_id = \'%s\';'\
-            % (param, new_val, user_id, rest_id)
+            % (user_id, rest_id)
     try:
-        cursor.execute(sql)
+        cursor.execute(id_sql)
+        rating_id = cursor.fetchone()
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
             sys.stderr(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred when updating the restaurant')
+            sys.stderr('You have not ranked this restaurant yet.')
+    
+    update_sql = 'UPDATE rating SET \'%s\' = \'%s\'\
+                WHERE rating_id = \'%s\';'\
+                % (param, new_val, rating_id)
+    
+    try:
+        cursor.execute(update_sql)
+    except mysql.connector.Error as err:
+        # If you're testing, it's helpful to see more details printed.
+        if DEBUG:
+            sys.stderr(err)
+            sys.exit(1)
+        else:
+            sys.stderr('An error occurred when updating the rating')
 
 def add_a_friend(username, friend_user):
     cursor = conn.cursor()
@@ -241,7 +283,7 @@ def add_a_friend(username, friend_user):
     user_id = get_user_id(username)
     friend_id = get_user_id(friend_user)
 
-    sql = 'INSERT INTO users VALUES (\'%s\', \'%s\');' % (user_id, friend_id) 
+    sql = 'INSERT INTO friend VALUES (\'%s\', \'%s\');' % (user_id, friend_id) 
 
     try:
         cursor.execute(sql)
@@ -258,7 +300,7 @@ def get_all_restaurants_in_location(location):
     cursor = conn.cursor() 
     
     # calling UDF
-    sql = 'CALL get_restaurants_in_location(%s);' % location 
+    sql = 'CALL top_restaurant_loc (%s);' % location 
     try:
         cursor.execute(sql)
         rows = cursor.fetchall()
