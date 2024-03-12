@@ -109,42 +109,32 @@ SELECT cuisine_id,
        AVG(rating) AS avg_rating
 FROM rating LEFT JOIN user_rating LEFT JOIN in_cuisine
 GROUP BY cuisine_id, restaurant_id
-HAVING avg_rating >= 8.0
+HAVING avg_rating >= 9.0
 ORDER BY cuisine_id ASC, avg_rating DESC;
 
 
 DELIMITER !
 
 CREATE PROCEDURE sp_cuisinetoprest_newrating(
-    new_restaurant_id INTEGER,
-    new_rating NUMERIC(2, 1)
+    new_restaurant_id INTEGER
 )
 BEGIN 
-    CREATE TABLE new_mv (
-        cuisine_id 	         INTEGER         NOT NULL,
-        restaurant_id        INTEGER         NOT NULL,
-        avg_rating           NUMERIC(2, 1)   NOT NULL,
-        PRIMARY KEY (cuisine_name, restuarant_name),
-        FOREIGN KEY (cuisine_id)
-            REFERENCES cuisine(cuisine_id),
-        FOREIGN KEY (restaurant_id)
-            REFERENCES restaurant(restaurant_id)
-    );
+    DECLARE rest_id INTEGER;
+    DECLARE cuis_id INTEGER;
+    DECLARE new_avg_rating NUMERIC(2, 1);
 
-    INSERT INTO new_mv (cuisine_id,
-                        restaurant_id,
-                        avg_rating)
-    SELECT cuisine_id,
-        restaurant_id,
-        AVG(rating) AS avg_rating
+    SELECT restaurant_id, cuisine_id, AVG(rating) AS avg_rating
+    INTO rest_id, cuis_id, new_avg_rating
     FROM rating LEFT JOIN user_rating LEFT JOIN in_cuisine
-    GROUP BY cuisine_id, restaurant_id
-    HAVING avg_rating >= 8.0
-    ORDER BY cuisine_id ASC, avg_rating DESC;
+    GROUP BY restaurant_id
+    WHERE restaurant_id = new_restaurant_id;
 
-    DROP TABLE mv_top_restaurants_by_cuisine;
-
-    RENAME TABLE new_mv TO mv_top_restaurants_by_cuisine;
+    IF new_avg_rating >= 9.0 THEN
+        INSERT INTO mv_top_restaurants_by_cuisine (cuisine_id,
+                                                   restaurant_id,
+                                                   avg_rating)
+        VALUES (rest_id, cuis_id, new_avg_rating);
+    END IF;
 
 END !
 
@@ -152,6 +142,6 @@ END !
 CREATE TRIGGER trg_new_rating AFTER INSERT
        ON rating FOR EACH ROW
 BEGIN
-    CALL sp_highest_(OLD.branch_name, OLD.balance);
+    CALL sp_cuisinetoprest_newrating(NEW.restaurant_id);
 END !
 DELIMITER ;
