@@ -114,6 +114,11 @@ BEGIN
     DECLARE cur CURSOR FOR
         SELECT restaurant_id, restaurant_name, website FROM chain_rests;
 
+    -- When fetch is complete, handler sets flag
+    -- 02000 is MySQL error for "zero rows fetched"
+    DECLARE CONTINUE HANDLER FOR SQLSTATE '02000'
+        SET done = 1;
+
     OPEN cur;
         
     WHILE NOT done DO
@@ -128,8 +133,7 @@ BEGIN
                 SELECT chain_id FROM chain 
                     WHERE chain_name=rest_name
                 INTO curr_chain_id;
-
-                INSERT INTO belongs_in_chain VALUES (curr_chain_id, rest_id);
+                INSERT INTO belongs_in_chain VALUES (rest_id, curr_chain_id);
             END IF;
         END IF;
     END WHILE;
