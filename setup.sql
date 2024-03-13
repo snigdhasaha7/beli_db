@@ -186,3 +186,18 @@ CREATE TABLE belongs_in_chain (
 -- frequently, so this index will help. Location is not a primary or
 -- foreign key.
 CREATE INDEX loc_idx ON restaurant(restaurant_location);
+
+-- CREATE TABLE restaurant_non_indexed (
+--     restaurant_id    	INTEGER             AUTO_INCREMENT,
+--     -- must have a restaurant name, but it need not be unique
+--     restaurant_name    	VARCHAR(50)         NOT NULL,
+--     -- approximate location of restaurant, for recommendations
+--     restaurant_location VARCHAR(200),
+--     -- describes price range with one of the following choices
+--     price_range    	    VARCHAR(5)
+--         CHECK (price_range IN (NULL, '$', '$$', '$$$', '$$$$')),
+--     -- website url not mandatory
+--     website    	        VARCHAR(200),
+
+--     PRIMARY KEY (restaurant_id)
+-- );
