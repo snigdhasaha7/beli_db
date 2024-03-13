@@ -20,7 +20,7 @@ CREATE TABLE users_info (
     -- screen username should be unique and reasonably short
     username		    VARCHAR(50)         NOT NULL    UNIQUE,
     -- email should be reasonable length
-    email               VARCHAR(50),
+    email               VARCHAR(50)         NOT NULL    UNIQUE,
     -- fixed size salt for authentication
     salt                CHAR(8)             NOT NULL,
     -- fixed size pwd hash for authentication 

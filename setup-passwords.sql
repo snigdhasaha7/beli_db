@@ -33,7 +33,6 @@ DELIMITER ;
 -- and then the salt and hash values are both stored in the table.
 DELIMITER !
 CREATE PROCEDURE sp_add_user(
-                  new_user_id  INT,
                   new_username VARCHAR(50),
                   new_email VARCHAR(50),
                   password VARCHAR(50),
@@ -53,8 +52,9 @@ BEGIN
   SET new_password_hash = SHA2(CONCAT(new_salt, password), 256); 
 
   -- insertion into table
-  INSERT INTO users_info
-    VALUES (new_user_id, new_username, new_email,
+  INSERT INTO users_info (username, email, salt, password_hash,
+                        real_name, user_picture, user_location)
+    VALUES (new_username, new_email,
             new_salt, new_password_hash, new_real_name,
             new_user_picture, new_user_location);
 END !

@@ -8,6 +8,7 @@ import mysql.connector
 # To get error codes from the connector, useful for user-friendly
 # error-handling
 import mysql.connector.errorcode as errorcode
+import json
 
 # Debugging flag to print errors when debugging that shouldn't be visible
 # to an actual client. ***Set to False when done testing.***
@@ -70,19 +71,24 @@ def show_admin_options():
         quit_ui()
     elif ans == 'u':
         users = get_all_users()
-        # TODO: save the users
+        with open('users.txt', 'w') as write_file:
+            write_file.write(json.dumps(users))
     elif ans == 'aR':
         print('Please enter the following information: ')
-        # TODO: handle empty values
         category = input('Enter the category:').lower()
         restaurant_name = input('Enter the restaurant name').lower()
         website = input('Enter the restaurant website:').lower()
-        location = input('Enter the location as (City, State)').lower()
-        # TODO: loop until done
-        cuisine = input('Enter the cuisine:').lower()
+        location = input('Enter the location:').lower()
+        cuisines = []
+        while True:
+            cuisine = input('Enter the cuisine(s),\
+                            type done when you are done:').lower()
+            if cuisine.lower() == 'done':
+                break
+            cuisines.append(cuisine)
         price_range = input('Enter the price range:').lower() 
         add_a_restaurant(category, restaurant_name, website,\
-                         location, cuisine, price_range)
+                         location, cuisines, price_range)
     elif ans == 'uR': 
         print('Enter the attribute you want to update: ')
         print('(c) - category')
@@ -92,8 +98,8 @@ def show_admin_options():
         print('(cu) - cuisine')
         print('(p) - price range')
         rest_name = input('Enter the restaurant you want to update: ').lower()
-        # TODO: handle multiple restaurants with same name
-        # IDEA: maybe display options to admin?
+        location = input('Enter the location of the restaurant you want to\
+                         update').lower()
         choice = input('Enter an option: ').lower()
         param = ''
         if choice == 'c': 
@@ -111,12 +117,12 @@ def show_admin_options():
         else:
             print("Option not found")
             return
-        # TODO: if cuisine, loop until done
+        # we will only take one cuisine at a time to error if the cuisine
+        # already exists for this restaurant
         val = input(f'Please enter the new value for {param}:').lower()
         update_a_restaurant(param, val, rest_name)
     elif ans == 'c':
-        find_chains()
-        # TODO: handle updating chain 
+        find_chains() 
     else:
         print("Invalid Choice. Please try again")
         show_admin_options() 
@@ -127,6 +133,7 @@ def quit_ui():
     """
     print('Good bye, admin!')
     exit()
+
 
 def get_all_users():
     cursor = conn.cursor()
@@ -151,6 +158,23 @@ def get_all_users():
             sys.stderr('An error occurred fetching all users')
 
 
+def get_rest_id(restaurant_name, location):
+    cursor = conn.cursor()
+    rest_id_query = 'SELECT restaurant_id FROM restaurant\
+        WHERE restaurant_name = \'%s\' AND location = \'%s\';' \
+            % (restaurant_name, location)
+    try:
+        cursor.execute(rest_id_query)
+        rest_id = cursor.fetchone()
+        return rest_id
+    except mysql.connector.Error as err:
+        if DEBUG:
+            sys.stderr(err)
+            sys.exit(1)
+        else:
+            sys.stderr('restaurant not found')
+
+
 def get_cuisine_id(cuisine):
     cursor = conn.cursor()
     cuisine_id_query = 'SELECT cuisine_id FROM cuisine\
@@ -164,7 +188,6 @@ def get_cuisine_id(cuisine):
             sys.stderr(err)
             sys.exit(1)
         else:
-            # TODO: Please actually replace this :) 
             sys.stderr(f'user {username} not found')
 
 
@@ -181,18 +204,13 @@ def get_category_id(category):
             sys.stderr(err)
             sys.exit(1)
         else:
-            # TODO: Please actually replace this :) 
             sys.stderr(f'user {username} not found')
 
 
 def add_a_restaurant(category, restaurant_name, 
                      website, location,
-                     cuisine, price_range):
+                     cuisines, price_range):
     cursor = conn.cursor()
-    # TODO: handle null values
-    
-    category_id = get_category_id(category)
-    cuisine_id = get_cuisine_id(cuisine)
 
     sql = 'INSERT INTO restaurant (restaurant_name, website,\
            restaurant_location, price_range) VALUES\
@@ -221,6 +239,8 @@ def add_a_restaurant(category, restaurant_name,
         else:
             sys.stderr('An error occurred')
 
+    category_id = get_category_id(category)
+
     category_sql = "INSERT INTO in_category VALUES (\'%d\', \'%d\');" \
                     (rest_id, category_id)
     
@@ -234,38 +254,90 @@ def add_a_restaurant(category, restaurant_name,
         else:
             sys.stderr('An error occurred')
 
-    cuisine_sql = "INSERT INTO in_cuisine VALUES (\'%d\', \'%d\');" \
-                    (rest_id, cuisine_id)
-    
-    try:
-        cursor.execute(cuisine_sql)
-    except mysql.connector.Error as err:
-        # If you're testing, it's helpful to see more details printed.
-        if DEBUG:
-            sys.stderr(err)
-            sys.exit(1)
-        else:
-            sys.stderr('An error occurred')
+    for cuisine in cuisines:
+        cuisine_id = get_cuisine_id(cuisine)
+
+        cuisine_sql = "INSERT INTO in_cuisine VALUES (\'%d\', \'%d\');" \
+                        (rest_id, cuisine_id)
+        
+        try:
+            cursor.execute(cuisine_sql)
+        except mysql.connector.Error as err:
+            # If you're testing, it's helpful to see more details printed.
+            if DEBUG:
+                sys.stderr(err)
+                sys.exit(1)
+            else:
+                sys.stderr('An error occurred')
     
 
 def update_a_restaurant(param, new_val, rest_name, location):
-    # TODO: handle category/cuisine stuff
     cursor = conn.cursor()
-    # Remember to pass arguments as a tuple like so to prevent SQL
-    # injection.
-    sql = 'UPDATE restaurants SET\
-          \'%s\' = \'%s\' \
-          WHERE restaurant_name = \'%s\' AND location = \'%s\';' \
-            % (param, new_val, rest_name, location)
-    try:
-        cursor.execute(sql)
-    except mysql.connector.Error as err:
-        # If you're testing, it's helpful to see more details printed.
-        if DEBUG:
-            sys.stderr(err)
-            sys.exit(1)
-        else:
-            sys.stderr('An error occurred when updating the restaurant.')
+    rest_id = get_rest_id(rest_name, location)
+
+    if param == 'category':
+
+        category_id = get_category_id(new_val)
+
+        remove_sql = "DELETE FROM in_category WHERE rest_id = \'%s\';" \
+                        % (rest_id)
+        
+        try:
+            cursor.execute(remove_sql)
+        except mysql.connector.Error as err:
+            # If you're testing, it's helpful to see more details printed.
+            if DEBUG:
+                sys.stderr(err)
+                sys.exit(1)
+            else:
+                sys.stderr('An error occurred.')
+
+        category_sql = "INSERT INTO in_category VALUES (\'%d\', \'%d\');" \
+                    (rest_id, category_id)
+    
+        try:
+            cursor.execute(category_sql)
+        except mysql.connector.Error as err:
+            # If you're testing, it's helpful to see more details printed.
+            if DEBUG:
+                sys.stderr(err)
+                sys.exit(1)
+            else:
+                sys.stderr('An error occurred')
+        
+        
+
+    elif param == 'cuisine':
+        cuisine_id = get_cuisine_id(new_val)
+
+        cuisine_sql = "INSERT INTO in_cuisine VALUES (\'%d\', \'%d\');" \
+                        (rest_id, cuisine_id)
+        
+        try:
+            cursor.execute(cuisine_sql)
+        except mysql.connector.Error as err:
+            # If you're testing, it's helpful to see more details printed.
+            if DEBUG:
+                sys.stderr(err)
+                sys.exit(1)
+            else:
+                sys.stderr('This restaurant is aready associated \
+                           with this cuisine')
+
+    else:
+        sql = 'UPDATE restaurants SET\
+            \'%s\' = \'%s\' \
+            WHERE restaurant_name = \'%s\' AND location = \'%s\';' \
+                % (param, new_val, rest_name, location)
+        try:
+            cursor.execute(sql)
+        except mysql.connector.Error as err:
+            # If you're testing, it's helpful to see more details printed.
+            if DEBUG:
+                sys.stderr(err)
+                sys.exit(1)
+            else:
+                sys.stderr('An error occurred when updating the restaurant.')
 
 
 def find_chains():
@@ -282,7 +354,7 @@ def find_chains():
             sys.exit(1)
         else:
             sys.stderr('An error occurred when updating chains.')
-            
+
 
 def main():
     """

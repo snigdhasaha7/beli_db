@@ -13,7 +13,7 @@ import mysql.connector.errorcode as errorcode
 # to an actual client. ***Set to False when done testing.***
 DEBUG = True
 
-def get_conn(username, userpw):
+def get_conn():
     """"
     Returns a connected MySQL connector instance, if connection is successful.
     If unsuccessful, exits.
@@ -21,11 +21,11 @@ def get_conn(username, userpw):
     try:
         conn = mysql.connector.connect(
           host='localhost',
-          user=username,
+          user='appclient',
           # Find port in MAMP or MySQL Workbench GUI or with
           # SHOW VARIABLES WHERE variable_name LIKE 'port';
           port='3306',  # this may change!
-          password=userpw,
+          password='clientpw',
           database='belidb' # replace this with your database name
         )
         print('Successfully connected.')
@@ -55,8 +55,6 @@ def show_options(username):
     viewing <x>, filtering results with a flag (e.g. -s to sort),
     sending a request to do <x>, etc.
     """
-    # TODO: talk to El to figure out how to handle making a new user
-    # especially with database connection
     print('What would you like to do? ')
     print('  (u) - update profile')
     print('  (r) - rank a new restaurant')
@@ -72,19 +70,18 @@ def show_options(username):
         print('What do you want to update?')
         print('(u) - username')
         print('(n) - name')
+        print('(e) - email')
         print('(pfp) - profile picture') 
         print('(pw) - password')
         print('(l) - location')
         choice = input('Enter an option: ').lower()
         val = input(f'Enter a new value for {choice}')
-        if choice != 'pw':
+        if choice != 'pw' and choice != 'n':
             val = val.lower() 
         update_user_profile(username, choice, val) 
     elif ans == 'r': 
         rest_name = input('Enter a restaurant name').lower() 
         location = input('Enter the restaurant location').lower()
-        # TODO: handle multiple restaurants in same location with same name
-        # IDEA: give user the extracted options 
         ranking = float(input("Enter a ranking out of 10:"))
         description = input("(optional)\
                             Enter a description of your experience: ").lower()
@@ -92,8 +89,6 @@ def show_options(username):
     elif ans == 'uR': 
         rest_name = input('Enter a restaurant name').lower() 
         location = input('Enter the restaurant location').lower()
-        # TODO: handle multiple restaurants in same location with same name
-        # IDEA: give user the extracted options 
         print('What do you want to update?')
         print('(r) - ranking')
         print('(d) - description')
@@ -107,10 +102,12 @@ def show_options(username):
     elif ans == 'l':
         location = input("Enter the location to search in: ").lower()
         restaurants = get_all_restaurants_in_location(location)
-        # TODO: handle what to do with these restaurants
+        for i, rest in enumerate(restaurants): 
+            print(f'{i+1}: {rest}')
     else:
         print("Invalid Choice. Please try again")
-        show_options(username) 
+        show_options()
+
 
 def quit_ui(username):
     """
@@ -118,6 +115,44 @@ def quit_ui(username):
     """
     print(f'Good bye, {username}!')
     exit()
+
+
+def authenticate_user(username, password):
+    cursor = conn.cursor() 
+
+    sql = "CALL authenticate(\'%s\', \'%s\');" % (username, password)
+
+    try:
+        cursor.execute(sql)
+        output = int(cursor.fetchone())
+        return output
+    except mysql.connector.Error as err:
+        # If you're testing, it's helpful to see more details printed.
+        if DEBUG:
+            sys.stderr(err)
+            sys.exit(1)
+        else:
+            sys.stderr('Invalid credentials!')
+
+
+def create_user(username, email, password, real_name, user_picture, user_location):
+    cursor = conn.cursor() 
+
+    sql = "CALL sp_add_user(\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\');"\
+        % (username, email, password, real_name, user_picture, user_location)
+    
+    try:
+        cursor.execute(sql)
+        output = int(cursor.fetchone())
+        return output
+    except mysql.connector.Error as err:
+        # If you're testing, it's helpful to see more details printed.
+        if DEBUG:
+            sys.stderr(err)
+            sys.exit(1)
+        else:
+            sys.stderr('Either the username or email is already taken, or\
+                       invalid data entered!')
 
 def update_user_profile(username, update_param, update_val):
     cursor = conn.cursor()
@@ -144,11 +179,6 @@ def update_user_profile(username, update_param, update_val):
     else:
         try:
             cursor.execute(sql)
-            # row = cursor.fetchone()
-            rows = cursor.fetchall()
-            for row in rows:
-                (col1val) = (row) # tuple unpacking!
-                # do stuff with row data
         except mysql.connector.Error as err:
             # If you're testing, it's helpful to see more details printed.
             if DEBUG:
@@ -170,8 +200,8 @@ def get_user_id(username):
             sys.stderr(err)
             sys.exit(1)
         else:
-            # TODO: Please actually replace this :) 
             sys.stderr(f'user {username} not found')
+
 
 def get_rest_id(restaurant_name, location):
     cursor = conn.cursor()
@@ -187,19 +217,14 @@ def get_rest_id(restaurant_name, location):
             sys.stderr(err)
             sys.exit(1)
         else:
-            # TODO: Please actually replace this :) 
-            sys.stderr('user not found')
+            sys.stderr('restaurant not found')
+
 
 def rank_a_restaurant(username, rest_name, location, ranking, description):
     cursor = conn.cursor()
-    # Remember to pass arguments as a tuple like so to prevent SQL
-    # injection.
-    
     user_id = get_user_id(username)
     rest_id = get_rest_id(rest_name,location)
 
-    # TODO: in the backend, there should be a trigger to update 
-    # cuisines, categories, average ratings
     sql = "INSERT INTO rating (rating, rating_description) VALUES \
         (\'%f\', \'%s\');" \
             % (user_id, rest_id, ranking, description)
@@ -293,10 +318,10 @@ def add_a_friend(username, friend_user):
             sys.stderr(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred fetchi')
+            sys.stderr('An error occurred.')
+
 
 def get_all_restaurants_in_location(location):
-    # TODO: potentially allow to handle for further parameters
     cursor = conn.cursor() 
     
     # calling UDF
@@ -322,6 +347,29 @@ def main():
     """
     Main function for starting things up.
     """
+    print("Sign Up or Log In?")
+    print("(s) - sign up")
+    print("(l) - log in")
+    choice = input("Enter one of the above:")
+    if choice == "l":
+        username = input('Enter your username: ').lower()
+        userpw = input('Enter your password: ')
+        output = authenticate_user(username, userpw)
+        if output == 0:
+            print("Invalid Credentials.")
+            return
+    elif choice == "s":
+        print("Please enter the following details:")
+        username = input("Username:").lower() 
+        email = input("Email:").lower() 
+        real_name = input("Full Name:")
+        user_picture = input("Enter a link to your pfp:").lower()
+        user_location = input("Enter your location").lower()
+        password = input("Enter a strong password:".lower())
+        create_user(username, email, password, real_name,\
+                    user_picture, user_location)
+    else:
+        print("Invalid choice. Goodbye!")
     show_options(username)
 
 
@@ -329,7 +377,5 @@ if __name__ == '__main__':
     # This conn is a global object that other functions can access.
     # You'll need to use cursor = conn.cursor() each time you are
     # about to execute a query with cursor.execute(<sqlquery>)
-    username = input('Enter your username: ').lower()
-    userpw = input('Enter your password: ')
-    conn = get_conn(username, userpw)
+    conn = get_conn()
     main()

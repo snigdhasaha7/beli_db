@@ -82,8 +82,6 @@ CREATE VIEW chain_rests AS
             GROUP BY restaurant_name, cuisine_id, category_id
             HAVING COUNT(*) > 1);  
 
-PROCEDURE
-
 DELIMITER !
 CREATE PROCEDURE sp_find_chains()
 BEGIN 
@@ -230,7 +228,7 @@ BEGIN
         FETCH cur INTO cur_user_id, cur_username, cur_email, cur_pwd,
                        cur_real_name, cur_user_picture, cur_user_location;
         IF NOT DONE THEN
-            CALL sp_add_user(cur_user_id, cur_username, cur_email, cur_pwd,
+            CALL sp_add_user(cur_username, cur_email, cur_pwd,
                 cur_real_name, cur_user_picture, cur_user_location);
         END IF;
     END WHILE;
@@ -238,5 +236,3 @@ BEGIN
 
 END ! 
 DELIMITER ;
-
-CALL sp_insert_users();

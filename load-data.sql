@@ -8,6 +8,7 @@
 -- Might need SET GLOBAL local_infile = 'ON' cmd first
 -- Might need to start mysql with --local-infile=1
 
+CALL sp_insert_users();
 
 LOAD DATA LOCAL INFILE 'data/friends_data.csv' INTO TABLE friend
 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
