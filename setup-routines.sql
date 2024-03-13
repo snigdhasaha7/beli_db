@@ -7,16 +7,23 @@ DROP TABLE      IF EXISTS mv_top_restaurants_by_cuisine;
 DROP VIEW       IF EXISTS chain_rests;
 DROP PROCEDURE  IF EXISTS sp_insert_users;
 
--- UDF
+-- UDF 1
 
 DELIMITER !
 
--- Get the top rated restaurant in a given location
+-- Get the top rated restaurant in the user-given location.
 CREATE FUNCTION top_restaurant_loc (loc VARCHAR(200)) 
                                     RETURNS VARCHAR(50) DETERMINISTIC
 BEGIN
     DECLARE highest_rated_restaurant VARCHAR(200);
 
+    -- We get the rating number, restaurant rated, and other relevant
+    -- restaurant info by doing natural left joins in the inner query.
+    -- From that, we filter by location (it needs to match the input)
+    -- and do a group by to aggregate and get the average rating. This
+    -- gives all restaurant names and their average ratings in the
+    -- specified location. Then, we sort and select the top row to get
+    -- the most highly rated restaurant's name.
     SELECT restaurant_name
     INTO highest_rated_restaurant
     FROM (SELECT restaurant_name, AVG(rating) AS avg_rating
@@ -34,24 +41,31 @@ END !
 -- Back to the standard SQL delimiter
 DELIMITER ;
 
--- UDF
+-- UDF 2
 
 DELIMITER !
 
--- Get the highest rated restaurant among a user's friends
+-- Get the highest rated restaurant among a user's friends. This
+-- function is not based on average ratings for a restaurant,
+-- rather, it is entirely dependent on the singular ratings of 
+-- a user's friends.
 CREATE FUNCTION top_restaurant_friends (input_username VARCHAR(50)) 
                                     RETURNS VARCHAR(50) DETERMINISTIC
 BEGIN
     DECLARE highest_rated_restaurant VARCHAR(200);
 
+    -- The inner query gets all the ratings from a particular user's
+    -- friends, along with other relevant information. Then, it sorts
+    -- by rating, and chooses the highest rated restaurant by only taking
+    -- the first row.
     SELECT restaurant_name
     INTO highest_rated_restaurant
     FROM (SELECT friend_id
-        FROM users_info NATURAL LEFT JOIN friend
-        WHERE username = input_username) AS user_friends
-        LEFT JOIN user_rating ON friend_id = user_id
-        NATURAL LEFT JOIN rating
-        NATURAL LEFT JOIN restaurant
+          FROM users_info NATURAL LEFT JOIN friend
+          WHERE username = input_username) AS user_friends
+         LEFT JOIN user_rating ON friend_id = user_id
+         NATURAL LEFT JOIN rating
+         NATURAL LEFT JOIN restaurant
     WHERE rating IS NOT NULL
     ORDER BY rating DESC
     LIMIT 1;
@@ -124,9 +138,9 @@ END !
 DELIMITER ;
 
 
--- Trigger with procedure on materialized view
--- Have an MV of the highest average rating restaurants by cuisine
--- Will update this MV every time a new rating is added
+-- Trigger with procedure on a materialized view.
+-- We keep an MV of the highest average rating restaurants by cuisine.
+-- This MV will be updated every time a new rating is added.
 
 CREATE TABLE mv_top_restaurants_by_cuisine (
     cuisine_id 	         INTEGER         NOT NULL,
@@ -136,6 +150,12 @@ CREATE TABLE mv_top_restaurants_by_cuisine (
     PRIMARY KEY (cuisine_id, restaurant_id)
 );
 
+-- In the inner query, we get all restaurants with an average
+-- rating of at least 8.0. Then, we left join cuisine with 
+-- in_cuisine and the result of the inner query, so that
+-- the highly rated restaurants become associated with their
+-- cuisines. Some cuisines may not have any restaurants with 
+-- a high enough average rating.
 INSERT INTO mv_top_restaurants_by_cuisine (cuisine_id,
                                            restaurant_id,
                                            avg_rating)
@@ -160,6 +180,7 @@ BEGIN
 
     DECLARE old_avg_rating NUMERIC(3, 1);
 
+    -- Get the new information, most importantly the new average rating.
     SELECT cuisine_id, restaurant_id, ROUND(avg_rating, 1)
     INTO cuis_id, rest_id, new_avg_rating
     FROM (SELECT restaurant_id, AVG(rating) AS avg_rating
@@ -168,21 +189,31 @@ BEGIN
         GROUP BY restaurant_id) AS rest_rating
         NATURAL LEFT JOIN in_cuisine;
 
+    -- Get the old average.
     SELECT avg_rating
     INTO old_avg_rating
     FROM mv_top_restaurants_by_cuisine
     WHERE restaurant_id = new_restaurant_id;
 
+    -- If this restaurant was already in the top restaurants per cuisine
     IF (old_avg_rating IS NOT NULL) THEN
+        -- The new average rating is still high enough, so we just update
+        -- the row in the MV.
         IF (new_avg_rating >= 8.0) THEN
             UPDATE mv_top_restaurants_by_cuisine
             SET avg_rating = new_avg_rating
             WHERE restaurant_id = new_restaurant_id;
+        -- The new average rating is no longer high enough to be part of
+        -- the MV, so this restaurant's row is deleted.
         ELSE
             DELETE FROM mv_top_restaurants_by_cuisine
             WHERE restaurant_id = new_restaurant_id;
         END IF;
+    -- Otherwise, if this restaurant was not already in the MV
     ELSE
+        -- If the new average ratin is at least 8.0 then it should
+        -- be in the MV. If not, then it should not be, so we don't
+        -- do anything.
         IF (new_avg_rating >= 8.0) THEN
             INSERT INTO mv_top_restaurants_by_cuisine (cuisine_id,
                                                     restaurant_id,

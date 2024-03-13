@@ -3,7 +3,7 @@ DROP PROCEDURE IF EXISTS sp_add_user;
 DROP FUNCTION IF EXISTS authenticate; 
 DROP PROCEDURE IF EXISTS sp_change_password;
 
--- CS 121 24wi: Password Management (A6 and Final Project)
+-- CS 121 24wi: Password Management (Beli Final Project)
 
 -- (Provided) This function generates a specified number of characters for using as a
 -- salt in passwords.
@@ -27,7 +27,7 @@ BEGIN
 END !
 DELIMITER ;
 
--- [Problem 1a]
+
 -- Adds a new user to the users_info table, using the specified password (max
 -- of 20 characters). Salts the password with a newly-generated salt value,
 -- and then the salt and hash values are both stored in the table.

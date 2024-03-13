@@ -53,9 +53,7 @@ CREATE TABLE friend (
         ON DELETE CASCADE
 );
 
--- Tracks the type of restaurants, e.g. cafe, bakery, etc
--- There will be materialized views for top restuarants and locations
--- per category.
+-- Tracks the type of restaurants, e.g. cafe, bakery, etc.
 CREATE TABLE category (
     category_id 	    INTEGER         AUTO_INCREMENT,
     category_name 	    VARCHAR(50)     NOT NULL    UNIQUE,
@@ -65,7 +63,7 @@ CREATE TABLE category (
 );
 
 -- Tracks cuisines, e.g. Japanese, Mediterranean, etc.
--- There will be materialized views for top restuarants and locations
+-- There will be materialized views for top restuarants
 -- per cuisine.
 CREATE TABLE cuisine (
     cuisine_id 	        INTEGER         AUTO_INCREMENT,
@@ -76,8 +74,7 @@ CREATE TABLE cuisine (
 );
 
 -- Contains information about restaurants, with specific information such as
--- description, website, etc. Based on this table, there will be a
--- materialized view for average ratings of each restaurant.
+-- description, website, etc.
 CREATE TABLE restaurant (
     restaurant_id    	INTEGER             AUTO_INCREMENT,
     -- must have a restaurant name, but it need not be unique
@@ -127,7 +124,7 @@ CREATE TABLE in_cuisine (
 );
 
 -- Represents a ranking in the database, with a unique database-wide id, 
--- and a mandatory rating value, and an optional rating_description/
+-- and a mandatory rating value, and an optional rating_description.
 CREATE TABLE rating (
     rating_id           INTEGER             AUTO_INCREMENT,
     -- rating should be between 0 and 10 (incl), allowing 1 decimal
