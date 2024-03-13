@@ -160,6 +160,7 @@ def get_all_users():
 
 def get_rest_id(restaurant_name, location):
     cursor = conn.cursor()
+    restaurant_name = restaurant_name.replace('\'', '\'\'')
     rest_id_query = 'SELECT restaurant_id FROM restaurant\
         WHERE restaurant_name = \'%s\' AND restaurant_location = \'%s\';' \
             % (restaurant_name, location)
