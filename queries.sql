@@ -7,10 +7,8 @@
 -- Only gets users with at least 1 rating.
 
 SELECT username, COUNT(rating) AS num_ratings, AVG(rating) AS avg_rating
-FROM users_info NATURAL LEFT JOIN user_rating NATURAL LEFT JOIN rating
-GROUP BY username
-HAVING (num_ratings > 0)
-ORDER BY num_ratings DESC;
+FROM user_rating NATURAL LEFT JOIN rating NATURAL LEFT JOIN users_info
+GROUP BY username;
 
 
 
