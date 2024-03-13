@@ -463,6 +463,7 @@ def get_top_restaurant_in_location(location):
     
     return rest_name, cuisines, category
 
+
 def main():
     """
     Main function for starting things up.

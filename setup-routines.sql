@@ -34,11 +34,6 @@ END !
 -- Back to the standard SQL delimiter
 DELIMITER ;
 
-
-
-
-
-
 -- UDF
 
 DELIMITER !
@@ -68,7 +63,8 @@ END !
 DELIMITER ;
 
 
-
+-- View to continuously update with restaurants that qualify as
+-- being in a chain.
 
 CREATE VIEW chain_rests AS
     SELECT restaurant_id, restaurant_name, website FROM restaurant
@@ -82,6 +78,10 @@ CREATE VIEW chain_rests AS
             GROUP BY restaurant_name, cuisine_id, category_id
             HAVING COUNT(*) > 1);  
 
+
+-- Procedure that searches the above view and updates the chain
+-- record if the chain is new, and the belongs_in_chain record if a 
+-- new restaurant has been found. 
 DELIMITER !
 CREATE PROCEDURE sp_find_chains()
 BEGIN 
@@ -93,6 +93,11 @@ BEGIN
 
     DECLARE cur CURSOR FOR
         SELECT restaurant_id, restaurant_name, website FROM chain_rests;
+
+    -- When fetch is complete, handler sets flag
+    -- 02000 is MySQL error for "zero rows fetched"
+    DECLARE CONTINUE HANDLER FOR SQLSTATE '02000'
+        SET done = 1;
 
     OPEN cur;
         
@@ -108,8 +113,7 @@ BEGIN
                 SELECT chain_id FROM chain 
                     WHERE chain_name=rest_name
                 INTO curr_chain_id;
-
-                INSERT INTO belongs_in_chain VALUES (curr_chain_id, rest_id);
+                INSERT INTO belongs_in_chain VALUES (rest_id, curr_chain_id);
             END IF;
         END IF;
     END WHILE;
@@ -118,8 +122,6 @@ BEGIN
 END !
 
 DELIMITER ;
-
-
 
 
 -- Trigger with procedure on materialized view
@@ -200,10 +202,9 @@ END !
 DELIMITER ;
 
 
-
-
-
-
+-- Procedure used during data loading to process users through
+-- password management to for security purposes - to ensure every
+-- password is hashed.
 DELIMITER ! 
 CREATE PROCEDURE sp_insert_users () 
 BEGIN 
