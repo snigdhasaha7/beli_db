@@ -1,291 +1,291 @@
-restaurant_id,restaurant_name,website,restaurant_location,price_range
-1,Luisa's Bar,https://www.luisas-bar.com,Las Vegas,$$$
-2,Giampiero's Coffee & Tea,https://www.giampieros-coffee-&-tea.com,Dallas,$$
-3,Octavius's Bar,https://www.octaviuss-bar.com,Virginia Beach,$$$$
-4,Jolanda's Restuarant,https://www.jolandas-restuarant.com,Kansas City,$$$$
-5,Josephine's Restuarant,https://www.josephines-restuarant.com,Albuquerque,$$
-6,Tomoya's Restuarant,https://www.tomoyas-restuarant.com,Mesa,$
-7,Tomoya's Bar,https://www.tomoyas-bar.com,Columbus,$
-8,peach's Coffee & Tea,https://www.peachs-coffee-&-tea.com,Austin,$$
-9,Sotaro's Coffee & Tea,https://www.sotaros-coffee-&-tea.com,Long Beach,$
-10,Minoru's Restuarant,https://www.minorus-restuarant.com,Baltimore,$
-11,Noelia's Coffee & Tea,https://www.noelias-coffee-&-tea.com,Nashville,$
-12,Agustin's Bakery,https://www.agustins-bakery.com,Portland,$$
-13,Jaime's Ice Cream & Dessert,https://www.jaimes-ice-cream-&-dessert.com,Dallas,$$
-14,Nayeli's Restuarant,https://www.nayelis-restuarant.com,Nashville,$$$$
-15,Patricia's Bar,https://www.patricias-bar.com,Sacramento,$
-16,Rui's Restuarant,https://www.ruis-restuarant.com,Albuquerque,$$
-17,Dan's Bar,https://www.dans-bar.com,Houston,$$$$
-18,Yuying's Bakery,https://www.yuyings-bakery.com,Memphis,$
-19,Sooyoung's Restuarant,https://www.sooyoungs-restuarant.com,Louisville,$$$$
-20,Shulan's Restuarant,https://www.shulans-restuarant.com,Seattle,$
-21,Anya's Bar,https://www.anyas-bar.com,New York City,$
-22,Priyansh's Bakery,https://www.priyanshs-bakery.com,Los Angeles,$$$$
-23,Hrishita's Bakery,https://www.hrishitas-bakery.com,Fresno,$$
-24,Hridaan's Ice Cream & Dessert,https://www.hridaans-ice-cream-&-dessert.com,Fresno,$$$$
-25,Neelofar's Coffee & Tea,https://www.neelofars-coffee-&-tea.com,El Paso,$$$$
-26,Valerie's Bar,https://www.valeries-bar.com,Los Angeles,$
-27,Alix's Restuarant,https://www.alixs-restuarant.com,Tucson,$
-28,Vincent's Ice Cream & Dessert,https://www.vincents-ice-cream-&-dessert.com,Columbus,$$
-29,Christelle's Bakery,https://www.christelles-bakery.com,Fresno,$$
-30,Nicolas's Ice Cream & Dessert,https://www.nicolass-ice-cream-&-dessert.com,New York City,$$$
-31,Jessica's Bar,https://www.jessicas-bar.com,San Antonio,$
-32,Dylan's Bar,https://www.dylans-bar.com,Arlington,$$$
-33,Marisa's Ice Cream & Dessert,https://www.marisas-ice-cream-&-dessert.com,Portland,$$
-34,Susan's Restuarant,https://www.susans-restuarant.com,New York City,$$$$
-35,Michael's Restuarant,https://www.michaels-restuarant.com,Columbus,$
-36,Suranee's Ice Cream & Dessert,https://www.suranees-ice-cream-&-dessert.com,Portland,$
-37,Sharp's Bakery,https://www.sharps-bakery.com,Albuquerque,$$$
-38,Maliwan's Restuarant,https://www.maliwans-restuarant.com,Miami,$$$
-39,Wanatthada's Bakery,https://www.wanatthadas-bakery.com,Long Beach,$$$
-40,Phakchanon's Bakery,https://www.phakchanons-bakery.com,Chicago,$$$
-41,Sebastiani's Ice Cream & Dessert,https://www.sebastianis-ice-cream-&-dessert.com,Tulsa,$$$
-42,Theophrastus's Restuarant,https://www.theophrastuss-restuarant.com,Columbus,$
-43,Evanthia's Coffee & Tea,https://www.evanthias-coffee-&-tea.com,Sacramento,$
-44,Mathilde's Coffee & Tea,https://www.mathildes-coffee-&-tea.com,Kansas City,$$$
-45,Diomedes's Restuarant,https://www.diomedess-restuarant.com,Miami,$$$$
-46,Edelmiro's Ice Cream & Dessert,https://www.edelmiros-ice-cream-&-dessert.com,Miami,$
-47,John the baptist's Ice Cream & Dessert,https://www.john-the-baptists-ice-cream-&-dessert.com,Milwaukee,$
-48,Maria Luisa's Bar,https://www.maria-luisas-bar.com,Seattle,$
-49,Horacio's Bar,https://www.horacios-bar.com,Austin,$$
-50,Eusebio's Restuarant,https://www.eusebios-restuarant.com,San Jose,$$
-51,Minseok's Restuarant,https://www.minseoks-restuarant.com,Denver,$$
-52,Junhyuk's Bar,https://www.junhyuks-bar.com,Tucson,$$
-53,Sunok's Restuarant,https://www.sunoks-restuarant.com,Los Angeles,$$$$
-54,Jeonghee's Bakery,https://www.jeonghees-bakery.com,Fresno,$$$$
-55,Jeongsun's Ice Cream & Dessert,https://www.jeongsuns-ice-cream-&-dessert.com,Arlington,$
-56,Sarah's Coffee & Tea,https://www.sarahs-coffee-&-tea.com,San Diego,$$$$
-57,Alyssa's Coffee & Tea,https://www.alyssas-coffee-&-tea.com,Indianapolis,$$$
-58,Edward's Coffee & Tea,https://www.edwards-coffee-&-tea.com,New York City,$$$$
-59,Ryan's Bakery,https://www.ryans-bakery.com,San Antonio,$$$$
-60,Christopher's Bar,https://www.christophers-bar.com,San Antonio,$$
-61,Sharon's Ice Cream & Dessert,https://www.sharons-ice-cream-&-dessert.com,Milwaukee,$$$$
-62,Kelsey's Bar,https://www.kelseys-bar.com,Jacksonville,$
-63,Heather's Restuarant,https://www.heathers-restuarant.com,San Diego,$$
-64,Joan's Ice Cream & Dessert,https://www.joans-ice-cream-&-dessert.com,Nashville,$
-65,Jason's Coffee & Tea,https://www.jasons-coffee-&-tea.com,Milwaukee,$
-66,Victory's Bakery,https://www.victorys-bakery.com,Raleigh,$$$
-67,Laís's Bar,https://www.laíss-bar.com,Philadelphia,$$$$
-68,Isis's Restuarant,https://www.isiss-restuarant.com,Phoenix,$$$
-69,Thiago's Coffee & Tea,https://www.thiagos-coffee-&-tea.com,Miami,$$
-70,Manuela's Coffee & Tea,https://www.manuelas-coffee-&-tea.com,Miami,$$$
-71,Ermutlu's Restuarant,https://www.ermutlus-restuarant.com,Arlington,$$
-72,Oldag's Bakery,https://www.oldags-bakery.com,Oklahoma City,$
-73,Sencar's Coffee & Tea,https://www.sencars-coffee-&-tea.com,Portland,$
-74,Cultivation's Ice Cream & Dessert,https://www.cultivations-ice-cream-&-dessert.com,Omaha,$$$$
-75,Yield's Restuarant,https://www.yields-restuarant.com,Minneapolis,$$$
-76,Ashley's Coffee & Tea,https://www.ashleys-coffee-&-tea.com,Tucson,$
-77,Marcus's Bar,https://www.marcuss-bar.com,Miami,$$
-78,Leah's Restuarant,https://www.leahs-restuarant.com,Austin,$$$$
-79,Melissa's Ice Cream & Dessert,https://www.melissas-ice-cream-&-dessert.com,Seattle,$$$
-80,Mary's Coffee & Tea,https://www.marys-coffee-&-tea.com,"Washington, D.C.",$
-81,Brian's Coffee & Tea,https://www.brians-coffee-&-tea.com,San Francisco,$$$$
-82,Jenny's Restuarant,https://www.jennys-restuarant.com,El Paso,$$
-83,Sergio's Bakery,https://www.sergios-bakery.com,Seattle,$$$$
-84,Patrick's Ice Cream & Dessert,https://www.patricks-ice-cream-&-dessert.com,Houston,$$$$
-85,Timothy's Bakery,https://www.timothys-bakery.com,Sacramento,$$$$
-86,Mia's Coffee & Tea,https://www.mias-coffee-&-tea.com,Louisville,$$
-87,Simon's Bakery,https://www.simons-bakery.com,Seattle,$$$$
-88,Maximo's Ice Cream & Dessert,https://www.maximos-ice-cream-&-dessert.com,Colorado Springs,$
-89,Simon's Bar,https://www.simons-bar.com,Atlanta,$$
-90,Maria Paz's Coffee & Tea,https://www.maria-pazs-coffee-&-tea.com,Louisville,$
-91,Deborah's Bakery,https://www.deborahs-bakery.com,Memphis,$$
-92,Jacqueline's Restuarant,https://www.jacquelines-restuarant.com,"Washington, D.C.",$$
-93,Vincent's Coffee & Tea,https://www.vincents-coffee-&-tea.com,Colorado Springs,$$
-94,Bryan's Restuarant,https://www.bryans-restuarant.com,Miami,$$$$
-95,Heather's Restuarant,https://www.heathers-restuarant.com,Denver,$$
-96,Gerard's Bar,https://www.gerards-bar.com,San Diego,$
-97,Belinda's Bar,https://www.belindas-bar.com,Fort Worth,$
-98,Vittorio's Bakery,https://www.vittorios-bakery.com,Portland,$$$$
-99,Maxim's Restuarant,https://www.maxims-restuarant.com,Minneapolis,$$$
-100,Prisca's Coffee & Tea,https://www.priscas-coffee-&-tea.com,Virginia Beach,$$$$
-101,Daniel's Ice Cream & Dessert,https://www.daniels-ice-cream-&-dessert.com,Arlington,$$$$
-102,Frances's Coffee & Tea,https://www.francess-coffee-&-tea.com,Boston,$
-103,Ruth's Bar,https://www.ruths-bar.com,Oakland,$$$$
-104,Julie's Restuarant,https://www.julies-restuarant.com,Kansas City,$$$$
-105,Chelsea's Bakery,https://www.chelseas-bakery.com,Tulsa,$$$
-106,Brittany's Bakery,https://www.brittanys-bakery.com,Seattle,$$$$
-107,Daniel's Ice Cream & Dessert,https://www.daniels-ice-cream-&-dessert.com,El Paso,$$
-108,Kyle's Bakery,https://www.kyles-bakery.com,Houston,$$$$
-109,Holly's Bakery,https://www.hollys-bakery.com,Houston,$$$$
-110,David's Ice Cream & Dessert,https://www.davids-ice-cream-&-dessert.com,Charlotte,$$$$
-111,Kyosuke's Bakery,https://www.kyosukes-bakery.com,Nashville,$$$$
-112,Yasuhiro's Ice Cream & Dessert,https://www.yasuhiros-ice-cream-&-dessert.com,Fort Worth,$
-113,Asuka's Bar,https://www.asukas-bar.com,San Diego,$
-114,Tomoya's Ice Cream & Dessert,https://www.tomoyas-ice-cream-&-dessert.com,Houston,$$$$
-115,Jun's Bakery,https://www.juns-bakery.com,Baltimore,$$$$
-116,Kevin's Coffee & Tea,https://www.kevins-coffee-&-tea.com,New York City,$$
-117,Elizabeth's Ice Cream & Dessert,https://www.elizabeths-ice-cream-&-dessert.com,Kansas City,$$$$
-118,Nathaniel's Bakery,https://www.nathaniels-bakery.com,Las Vegas,$$$$
-119,John's Coffee & Tea,https://www.johns-coffee-&-tea.com,Tucson,$$
-120,Jasmine's Restuarant,https://www.jasmines-restuarant.com,Baltimore,$
-121,Vitaly's Bar,https://www.vitalys-bar.com,Phoenix,$
-122,Naum's Coffee & Tea,https://www.naums-coffee-&-tea.com,Las Vegas,$
-123,Sergey's Restuarant,https://www.sergeys-restuarant.com,Albuquerque,$$
-124,Constantine's Coffee & Tea,https://www.constantines-coffee-&-tea.com,Virginia Beach,$
-125,Spartacus's Restuarant,https://www.spartacuss-restuarant.com,Philadelphia,$$$$
-126,Elizabeth's Ice Cream & Dessert,https://www.elizabeths-ice-cream-&-dessert.com,Charlotte,$$$$
-127,Barry's Bakery,https://www.barrys-bakery.com,Omaha,$$
-128,Brianna's Bakery,https://www.briannas-bakery.com,Raleigh,$$
-129,Christopher's Ice Cream & Dessert,https://www.christophers-ice-cream-&-dessert.com,Atlanta,$
-130,Patricia's Restuarant,https://www.patricias-restuarant.com,Denver,$$$
-131,Tony's Bar,https://www.tonys-bar.com,Phoenix,$
-132,Jessica's Bakery,https://www.jessicas-bakery.com,Chicago,$$$
-133,Theresa's Ice Cream & Dessert,https://www.theresas-ice-cream-&-dessert.com,Nashville,$
-134,Jessica's Bakery,https://www.jessicas-bakery.com,San Jose,$$$$
-135,Victoria's Ice Cream & Dessert,https://www.victorias-ice-cream-&-dessert.com,Jacksonville,$$$
-136,Goran's Ice Cream & Dessert,https://www.gorans-ice-cream-&-dessert.com,Detroit,$
-137,Gingered's Bakery,https://www.gingereds-bakery.com,Virginia Beach,$$$$
-138,Per's Ice Cream & Dessert,https://www.pers-ice-cream-&-dessert.com,Virginia Beach,$$
-139,Erik's Restuarant,https://www.eriks-restuarant.com,Houston,$$$
-140,Susanne's Restuarant,https://www.susannes-restuarant.com,Oklahoma City,$$$
-141,Carlos's Bakery,https://www.carloss-bakery.com,Oklahoma City,$
-142,Alexandra's Bakery,https://www.alexandras-bakery.com,Long Beach,$$$
-143,David's Restuarant,https://www.davids-restuarant.com,Omaha,$$$
-144,Laura's Bar,https://www.lauras-bar.com,Las Vegas,$$$
-145,Melissa's Ice Cream & Dessert,https://www.melissas-ice-cream-&-dessert.com,Mesa,$$$$
-146,John's Coffee & Tea,https://www.johns-coffee-&-tea.com,Long Beach,$$
-147,Kevin's Bar,https://www.kevins-bar.com,Oklahoma City,$$$
-148,Ronald's Ice Cream & Dessert,https://www.ronalds-ice-cream-&-dessert.com,Seattle,$$$
-149,Monica's Coffee & Tea,https://www.monicas-coffee-&-tea.com,Tulsa,$
-150,Christian's Ice Cream & Dessert,https://www.christians-ice-cream-&-dessert.com,Columbus,$$
-151,Tammy's Coffee & Tea,https://www.tammys-coffee-&-tea.com,San Jose,$
-152,Jeremy's Restuarant,https://www.jeremys-restuarant.com,Tulsa,$
-153,Rebecca's Ice Cream & Dessert,https://www.rebeccas-ice-cream-&-dessert.com,Boston,$$$
-154,Michael's Restuarant,https://www.michaels-restuarant.com,Atlanta,$$
-155,Justin's Bakery,https://www.justins-bakery.com,Virginia Beach,$$$
-156,Marika's Restuarant,https://www.marikas-restuarant.com,El Paso,$$
-157,Marek's Ice Cream & Dessert,https://www.mareks-ice-cream-&-dessert.com,Tulsa,$$$$
-158,Damian's Restuarant,https://www.damians-restuarant.com,Dallas,$$$$
-159,Krzysztof's Bar,https://www.krzysztofs-bar.com,Charlotte,$$
-160,Marcelina's Restuarant,https://www.marcelinas-restuarant.com,Charlotte,$$$$
-161,Roy's Restuarant,https://www.roys-restuarant.com,Tucson,$
-162,Ethna's Restuarant,https://www.ethnas-restuarant.com,Baltimore,$$
-163,Rona's Ice Cream & Dessert,https://www.ronas-ice-cream-&-dessert.com,Dallas,$$
-164,Ida's Bakery,https://www.idas-bakery.com,Philadelphia,$
-165,Tracy's Bakery,https://www.tracys-bakery.com,Louisville,$$$
-166,Soraia's Ice Cream & Dessert,https://www.soraias-ice-cream-&-dessert.com,Fort Worth,$$$
-167,Kevin's Ice Cream & Dessert,https://www.kevins-ice-cream-&-dessert.com,Portland,$$$$
-168,Bryan's Bar,https://www.bryans-bar.com,Omaha,$
-169,Patricia's Coffee & Tea,https://www.patricias-coffee-&-tea.com,Tucson,$$
-170,Victory's Coffee & Tea,https://www.victorys-coffee-&-tea.com,San Diego,$$$
-171,Jeremiah's Coffee & Tea,https://www.jeremiahs-coffee-&-tea.com,Los Angeles,$$$$
-172,William's Coffee & Tea,https://www.williams-coffee-&-tea.com,Los Angeles,$$$$
-173,Nicole's Ice Cream & Dessert,https://www.nicoles-ice-cream-&-dessert.com,San Jose,$$$$
-174,Felicia's Restuarant,https://www.felicias-restuarant.com,Indianapolis,$$
-175,Rhonda's Ice Cream & Dessert,https://www.rhondas-ice-cream-&-dessert.com,Colorado Springs,$$$$
-176,Jason's Ice Cream & Dessert,https://www.jasons-ice-cream-&-dessert.com,Kansas City,$$$$
-177,Terrance's Bar,https://www.terrances-bar.com,San Jose,$$
-178,James's Coffee & Tea,https://www.jamess-coffee-&-tea.com,Milwaukee,$$$$
-179,Ray's Bakery,https://www.rays-bakery.com,San Diego,$
-180,Adam's Bakery,https://www.adams-bakery.com,New York City,$$$
-181,Banking's Bar,https://www.bankings-bar.com,Indianapolis,$$$$
-182,Fitriani's Bakery,https://www.fitrianis-bakery.com,Tulsa,$
-183,Karna's Bar,https://www.karnas-bar.com,Boston,$$$$
-184,Upik's Restuarant,https://www.upiks-restuarant.com,Columbus,$$$
-185,Edward's Bakery,https://www.edwards-bakery.com,"Washington, D.C.",$
-186,Jennifer's Coffee & Tea,https://www.jennifers-coffee-&-tea.com,Jacksonville,$
-187,Jason's Bakery,https://www.jasons-bakery.com,Albuquerque,$$
-188,Charles's Coffee & Tea,https://www.charless-coffee-&-tea.com,Columbus,$$$
-189,Kristin's Ice Cream & Dessert,https://www.kristins-ice-cream-&-dessert.com,Charlotte,$$$$
-190,Jeffrey's Ice Cream & Dessert,https://www.jeffreys-ice-cream-&-dessert.com,Raleigh,$$$
-191,Jennifer's Bakery,https://www.jennifers-bakery.com,Minneapolis,$$$
-192,Joshua's Coffee & Tea,https://www.joshuas-coffee-&-tea.com,Los Angeles,$$$
-193,Erin's Restuarant,https://www.erins-restuarant.com,Minneapolis,$$$$
-194,Janice's Bakery,https://www.janices-bakery.com,Dallas,$$
-195,Madison's Ice Cream & Dessert,https://www.madisons-ice-cream-&-dessert.com,El Paso,$
-196,Rotem's Ice Cream & Dessert,https://www.rotems-ice-cream-&-dessert.com,Fort Worth,$
-197,Naga's Bar,https://www.nagas-bar.com,Nashville,$
-198,Abigail's Ice Cream & Dessert,https://www.abigails-ice-cream-&-dessert.com,Atlanta,$$$$
-199,Avital's Restuarant,https://www.avitals-restuarant.com,Arlington,$$$$
-200,Naga's Bar,https://www.nagas-bar.com,Houston,$$
-201,Heather's Bakery,https://www.heathers-bakery.com,Raleigh,$$
-202,Jennifer's Bar,https://www.jennifers-bar.com,Louisville,$$$
-203,Christopher's Bakery,https://www.christophers-bakery.com,Chicago,$$
-204,Erika's Ice Cream & Dessert,https://www.erikas-ice-cream-&-dessert.com,Omaha,$$$$
-205,Michael's Coffee & Tea,https://www.michaels-coffee-&-tea.com,Fort Worth,$$$$
-206,Sean's Restuarant,https://www.seans-restuarant.com,Fresno,$$$
-207,Christina's Bar,https://www.christinas-bar.com,Dallas,$$
-208,Suzanne's Bakery,https://www.suzannes-bakery.com,New York City,$
-209,Luis's Restuarant,https://www.luiss-restuarant.com,Sacramento,$$$
-210,Chelsea's Bar,https://www.chelseas-bar.com,Detroit,$$$$
-211,Christina's Bar,https://www.christinas-bar.com,El Paso,$$
-212,Torsten's Coffee & Tea,https://www.torstens-coffee-&-tea.com,Arlington,$$$$
-213,Karl's Bar,https://www.karls-bar.com,Detroit,$
-214,Annette's Restuarant,https://www.annettes-restuarant.com,Las Vegas,$$
-215,Morgan's Coffee & Tea,https://www.morgans-coffee-&-tea.com,San Jose,$$$
-216,Patrik's Restuarant,https://www.patriks-restuarant.com,Raleigh,$$$$
-217,Martin's Bakery,https://www.martins-bakery.com,San Diego,$$$
-218,Attila's Restuarant,https://www.attilas-restuarant.com,San Francisco,$$
-219,Stephen's Ice Cream & Dessert,https://www.stephens-ice-cream-&-dessert.com,Fresno,$$$$
-220,Nikoletta's Bar,https://www.nikolettas-bar.com,Boston,$$$
-221,Mrinal's Bar,https://www.mrinals-bar.com,Virginia Beach,$
-222,Tanay's Restuarant,https://www.tanays-restuarant.com,San Jose,$$$$
-223,Shekhar's Restuarant,https://www.shekhars-restuarant.com,El Paso,$$$
-224,Heimanti's Restuarant,https://www.heimantis-restuarant.com,Mesa,$
-225,huge's Coffee & Tea,https://www.huges-coffee-&-tea.com,Philadelphia,$$$$
-226,rachita's Bar,https://www.rachitas-bar.com,Dallas,$$$
-227,Pratisara's Restuarant,https://www.pratisaras-restuarant.com,Kansas City,$$$
-228,Ray's Ice Cream & Dessert,https://www.rays-ice-cream-&-dessert.com,Milwaukee,$
-229,the creation's Coffee & Tea,https://www.the-creations-coffee-&-tea.com,Columbus,$
-230,Saurabh's Bakery,https://www.saurabhs-bakery.com,Kansas City,$$$
-231,Jonathan's Coffee & Tea,https://www.jonathans-coffee-&-tea.com,Nashville,$
-232,Michelle's Ice Cream & Dessert,https://www.michelles-ice-cream-&-dessert.com,Atlanta,$$$$
-233,Robert's Bakery,https://www.roberts-bakery.com,Albuquerque,$
-234,Barbara's Coffee & Tea,https://www.barbaras-coffee-&-tea.com,San Diego,$$
-235,Steven's Coffee & Tea,https://www.stevens-coffee-&-tea.com,Columbus,$
-236,Prophet's Coffee & Tea,https://www.prophets-coffee-&-tea.com,San Jose,$$$$
-237,Daniella's Ice Cream & Dessert,https://www.daniellas-ice-cream-&-dessert.com,Jacksonville,$$$
-238,Larisa's Coffee & Tea,https://www.larisas-coffee-&-tea.com,San Francisco,$$$$
-239,Angela's Restuarant,https://www.angelas-restuarant.com,Tucson,$
-240,Lara's Ice Cream & Dessert,https://www.laras-ice-cream-&-dessert.com,Charlotte,$$$$
-241,Jason's Coffee & Tea,https://www.jasons-coffee-&-tea.com,San Jose,$
-242,Patricia's Bar,https://www.patricias-bar.com,Portland,$$$$
-243,Christopher's Bakery,https://www.christophers-bakery.com,New York City,$
-244,Jason's Ice Cream & Dessert,https://www.jasons-ice-cream-&-dessert.com,New York City,$$$$
-245,Todd's Bakery,https://www.todds-bakery.com,Albuquerque,$
-246,Kelly's Ice Cream & Dessert,https://www.kellys-ice-cream-&-dessert.com,Albuquerque,$
-247,Lauren's Bakery,https://www.laurens-bakery.com,Atlanta,$$$$
-248,Eric's Coffee & Tea,https://www.erics-coffee-&-tea.com,Virginia Beach,$$
-249,Jessica's Restuarant,https://www.jessicas-restuarant.com,Seattle,$$$$
-250,Jessica's Coffee & Tea,https://www.jessicas-coffee-&-tea.com,Memphis,$
-1001,McDonald's,https://www.mcdonalds.com,Memphis,$
-1002,McDonald's,https://www.mcdonalds.com,San Francisco,$
-1003,McDonald's,https://www.mcdonalds.com,New York City,$
-1004,McDonald's,https://www.mcdonalds.com,Houston,$
-1005,McDonald's,https://www.mcdonalds.com,Oakland,$
-1006,McDonald's,https://www.mcdonalds.com,Minneapolis,$
-1007,McDonald's,https://www.mcdonalds.com,Atlanta,$
-1008,McDonald's,https://www.mcdonalds.com,San Antonio,$
-1009,McDonald's,https://www.mcdonalds.com,New York City,$
-1010,McDonald's,https://www.mcdonalds.com,Miami,$
-1011,Olive Garden,https://www.olivegarden.com,Oklahoma City,$$
-1012,Olive Garden,https://www.olivegarden.com,New York City,$$
-1013,Olive Garden,https://www.olivegarden.com,San Jose,$$
-1014,Olive Garden,https://www.olivegarden.com,Arlington,$$
-1015,Olive Garden,https://www.olivegarden.com,San Jose,$$
-1016,Olive Garden,https://www.olivegarden.com,Minneapolis,$$
-1017,Olive Garden,https://www.olivegarden.com,Houston,$$
-1018,Olive Garden,https://www.olivegarden.com,San Jose,$$
-1019,Olive Garden,https://www.olivegarden.com,New York City,$$
-1020,Olive Garden,https://www.olivegarden.com,New York City,$$
-1021,Chipotle,https://www.chipotle.com,Fort Worth,$
-1022,Chipotle,https://www.chipotle.com,"Washington, D.C.",$
-1023,Chipotle,https://www.chipotle.com,Philadelphia,$
-1024,Chipotle,https://www.chipotle.com,Seattle,$
-1025,Chipotle,https://www.chipotle.com,San Diego,$
-1026,Chipotle,https://www.chipotle.com,Arlington,$
-1027,Chipotle,https://www.chipotle.com,Columbus,$
-1028,Chipotle,https://www.chipotle.com,San Diego,$
-1029,Chipotle,https://www.chipotle.com,Las Vegas,$
-1030,Chipotle,https://www.chipotle.com,Colorado Springs,$
-1031,Panda Express,https://www.pandaexpress.com,"Washington, D.C.",$
-1032,Panda Express,https://www.pandaexpress.com,Oakland,$
-1033,Panda Express,https://www.pandaexpress.com,Dallas,$
-1034,Panda Express,https://www.pandaexpress.com,Colorado Springs,$
-1035,Panda Express,https://www.pandaexpress.com,Las Vegas,$
-1036,Panda Express,https://www.pandaexpress.com,El Paso,$
-1037,Panda Express,https://www.pandaexpress.com,Oakland,$
-1038,Panda Express,https://www.pandaexpress.com,Albuquerque,$
-1039,Panda Express,https://www.pandaexpress.com,San Antonio,$
-1040,Panda Express,https://www.pandaexpress.com,Chicago,$
+restaurant_id,restaurant_name,restaurant_location,price_range,website
+1,Luisa's Bar,Las Vegas,$$$,https://www.luisas-bar.com
+2,Giampiero's Coffee & Tea,Dallas,$$,https://www.giampieros-coffee-&-tea.com
+3,Octavius's Bar,Virginia Beach,$$$$,https://www.octaviuss-bar.com
+4,Jolanda's Restuarant,Kansas City,$$$$,https://www.jolandas-restuarant.com
+5,Josephine's Restuarant,Albuquerque,$$,https://www.josephines-restuarant.com
+6,Tomoya's Restuarant,Mesa,$,https://www.tomoyas-restuarant.com
+7,Tomoya's Bar,Columbus,$,https://www.tomoyas-bar.com
+8,peach's Coffee & Tea,Austin,$$,https://www.peachs-coffee-&-tea.com
+9,Sotaro's Coffee & Tea,Long Beach,$,https://www.sotaros-coffee-&-tea.com
+10,Minoru's Restuarant,Baltimore,$,https://www.minorus-restuarant.com
+11,Noelia's Coffee & Tea,Nashville,$,https://www.noelias-coffee-&-tea.com
+12,Agustin's Bakery,Portland,$$,https://www.agustins-bakery.com
+13,Jaime's Ice Cream & Dessert,Dallas,$$,https://www.jaimes-ice-cream-&-dessert.com
+14,Nayeli's Restuarant,Nashville,$$$$,https://www.nayelis-restuarant.com
+15,Patricia's Bar,Sacramento,$,https://www.patricias-bar.com
+16,Rui's Restuarant,Albuquerque,$$,https://www.ruis-restuarant.com
+17,Dan's Bar,Houston,$$$$,https://www.dans-bar.com
+18,Yuying's Bakery,Memphis,$,https://www.yuyings-bakery.com
+19,Sooyoung's Restuarant,Louisville,$$$$,https://www.sooyoungs-restuarant.com
+20,Shulan's Restuarant,Seattle,$,https://www.shulans-restuarant.com
+21,Anya's Bar,New York City,$,https://www.anyas-bar.com
+22,Priyansh's Bakery,Los Angeles,$$$$,https://www.priyanshs-bakery.com
+23,Hrishita's Bakery,Fresno,$$,https://www.hrishitas-bakery.com
+24,Hridaan's Ice Cream & Dessert,Fresno,$$$$,https://www.hridaans-ice-cream-&-dessert.com
+25,Neelofar's Coffee & Tea,El Paso,$$$$,https://www.neelofars-coffee-&-tea.com
+26,Valerie's Bar,Los Angeles,$,https://www.valeries-bar.com
+27,Alix's Restuarant,Tucson,$,https://www.alixs-restuarant.com
+28,Vincent's Ice Cream & Dessert,Columbus,$$,https://www.vincents-ice-cream-&-dessert.com
+29,Christelle's Bakery,Fresno,$$,https://www.christelles-bakery.com
+30,Nicolas's Ice Cream & Dessert,New York City,$$$,https://www.nicolass-ice-cream-&-dessert.com
+31,Jessica's Bar,San Antonio,$,https://www.jessicas-bar.com
+32,Dylan's Bar,Arlington,$$$,https://www.dylans-bar.com
+33,Marisa's Ice Cream & Dessert,Portland,$$,https://www.marisas-ice-cream-&-dessert.com
+34,Susan's Restuarant,New York City,$$$$,https://www.susans-restuarant.com
+35,Michael's Restuarant,Columbus,$,https://www.michaels-restuarant.com
+36,Suranee's Ice Cream & Dessert,Portland,$,https://www.suranees-ice-cream-&-dessert.com
+37,Sharp's Bakery,Albuquerque,$$$,https://www.sharps-bakery.com
+38,Maliwan's Restuarant,Miami,$$$,https://www.maliwans-restuarant.com
+39,Wanatthada's Bakery,Long Beach,$$$,https://www.wanatthadas-bakery.com
+40,Phakchanon's Bakery,Chicago,$$$,https://www.phakchanons-bakery.com
+41,Sebastiani's Ice Cream & Dessert,Tulsa,$$$,https://www.sebastianis-ice-cream-&-dessert.com
+42,Theophrastus's Restuarant,Columbus,$,https://www.theophrastuss-restuarant.com
+43,Evanthia's Coffee & Tea,Sacramento,$,https://www.evanthias-coffee-&-tea.com
+44,Mathilde's Coffee & Tea,Kansas City,$$$,https://www.mathildes-coffee-&-tea.com
+45,Diomedes's Restuarant,Miami,$$$$,https://www.diomedess-restuarant.com
+46,Edelmiro's Ice Cream & Dessert,Miami,$,https://www.edelmiros-ice-cream-&-dessert.com
+47,John the baptist's Ice Cream & Dessert,Milwaukee,$,https://www.john-the-baptists-ice-cream-&-dessert.com
+48,Maria Luisa's Bar,Seattle,$,https://www.maria-luisas-bar.com
+49,Horacio's Bar,Austin,$$,https://www.horacios-bar.com
+50,Eusebio's Restuarant,San Jose,$$,https://www.eusebios-restuarant.com
+51,Minseok's Restuarant,Denver,$$,https://www.minseoks-restuarant.com
+52,Junhyuk's Bar,Tucson,$$,https://www.junhyuks-bar.com
+53,Sunok's Restuarant,Los Angeles,$$$$,https://www.sunoks-restuarant.com
+54,Jeonghee's Bakery,Fresno,$$$$,https://www.jeonghees-bakery.com
+55,Jeongsun's Ice Cream & Dessert,Arlington,$,https://www.jeongsuns-ice-cream-&-dessert.com
+56,Sarah's Coffee & Tea,San Diego,$$$$,https://www.sarahs-coffee-&-tea.com
+57,Alyssa's Coffee & Tea,Indianapolis,$$$,https://www.alyssas-coffee-&-tea.com
+58,Edward's Coffee & Tea,New York City,$$$$,https://www.edwards-coffee-&-tea.com
+59,Ryan's Bakery,San Antonio,$$$$,https://www.ryans-bakery.com
+60,Christopher's Bar,San Antonio,$$,https://www.christophers-bar.com
+61,Sharon's Ice Cream & Dessert,Milwaukee,$$$$,https://www.sharons-ice-cream-&-dessert.com
+62,Kelsey's Bar,Jacksonville,$,https://www.kelseys-bar.com
+63,Heather's Restuarant,San Diego,$$,https://www.heathers-restuarant.com
+64,Joan's Ice Cream & Dessert,Nashville,$,https://www.joans-ice-cream-&-dessert.com
+65,Jason's Coffee & Tea,Milwaukee,$,https://www.jasons-coffee-&-tea.com
+66,Victory's Bakery,Raleigh,$$$,https://www.victorys-bakery.com
+67,Laís's Bar,Philadelphia,$$$$,https://www.laíss-bar.com
+68,Isis's Restuarant,Phoenix,$$$,https://www.isiss-restuarant.com
+69,Thiago's Coffee & Tea,Miami,$$,https://www.thiagos-coffee-&-tea.com
+70,Manuela's Coffee & Tea,Miami,$$$,https://www.manuelas-coffee-&-tea.com
+71,Ermutlu's Restuarant,Arlington,$$,https://www.ermutlus-restuarant.com
+72,Oldag's Bakery,Oklahoma City,$,https://www.oldags-bakery.com
+73,Sencar's Coffee & Tea,Portland,$,https://www.sencars-coffee-&-tea.com
+74,Cultivation's Ice Cream & Dessert,Omaha,$$$$,https://www.cultivations-ice-cream-&-dessert.com
+75,Yield's Restuarant,Minneapolis,$$$,https://www.yields-restuarant.com
+76,Ashley's Coffee & Tea,Tucson,$,https://www.ashleys-coffee-&-tea.com
+77,Marcus's Bar,Miami,$$,https://www.marcuss-bar.com
+78,Leah's Restuarant,Austin,$$$$,https://www.leahs-restuarant.com
+79,Melissa's Ice Cream & Dessert,Seattle,$$$,https://www.melissas-ice-cream-&-dessert.com
+80,Mary's Coffee & Tea,Washington D.C.,$,https://www.marys-coffee-&-tea.com
+81,Brian's Coffee & Tea,San Francisco,$$$$,https://www.brians-coffee-&-tea.com
+82,Jenny's Restuarant,El Paso,$$,https://www.jennys-restuarant.com
+83,Sergio's Bakery,Seattle,$$$$,https://www.sergios-bakery.com
+84,Patrick's Ice Cream & Dessert,Houston,$$$$,https://www.patricks-ice-cream-&-dessert.com
+85,Timothy's Bakery,Sacramento,$$$$,https://www.timothys-bakery.com
+86,Mia's Coffee & Tea,Louisville,$$,https://www.mias-coffee-&-tea.com
+87,Simon's Bakery,Seattle,$$$$,https://www.simons-bakery.com
+88,Maximo's Ice Cream & Dessert,Colorado Springs,$,https://www.maximos-ice-cream-&-dessert.com
+89,Simon's Bar,Atlanta,$$,https://www.simons-bar.com
+90,Maria Paz's Coffee & Tea,Louisville,$,https://www.maria-pazs-coffee-&-tea.com
+91,Deborah's Bakery,Memphis,$$,https://www.deborahs-bakery.com
+92,Jacqueline's Restuarant,Washington D.C.,$$,https://www.jacquelines-restuarant.com
+93,Vincent's Coffee & Tea,Colorado Springs,$$,https://www.vincents-coffee-&-tea.com
+94,Bryan's Restuarant,Miami,$$$$,https://www.bryans-restuarant.com
+95,Heather's Restuarant,Denver,$$,https://www.heathers-restuarant.com
+96,Gerard's Bar,San Diego,$,https://www.gerards-bar.com
+97,Belinda's Bar,Fort Worth,$,https://www.belindas-bar.com
+98,Vittorio's Bakery,Portland,$$$$,https://www.vittorios-bakery.com
+99,Maxim's Restuarant,Minneapolis,$$$,https://www.maxims-restuarant.com
+100,Prisca's Coffee & Tea,Virginia Beach,$$$$,https://www.priscas-coffee-&-tea.com
+101,Daniel's Ice Cream & Dessert,Arlington,$$$$,https://www.daniels-ice-cream-&-dessert.com
+102,Frances's Coffee & Tea,Boston,$,https://www.francess-coffee-&-tea.com
+103,Ruth's Bar,Oakland,$$$$,https://www.ruths-bar.com
+104,Julie's Restuarant,Kansas City,$$$$,https://www.julies-restuarant.com
+105,Chelsea's Bakery,Tulsa,$$$,https://www.chelseas-bakery.com
+106,Brittany's Bakery,Seattle,$$$$,https://www.brittanys-bakery.com
+107,Daniel's Ice Cream & Dessert,El Paso,$$,https://www.daniels-ice-cream-&-dessert.com
+108,Kyle's Bakery,Houston,$$$$,https://www.kyles-bakery.com
+109,Holly's Bakery,Houston,$$$$,https://www.hollys-bakery.com
+110,David's Ice Cream & Dessert,Charlotte,$$$$,https://www.davids-ice-cream-&-dessert.com
+111,Kyosuke's Bakery,Nashville,$$$$,https://www.kyosukes-bakery.com
+112,Yasuhiro's Ice Cream & Dessert,Fort Worth,$,https://www.yasuhiros-ice-cream-&-dessert.com
+113,Asuka's Bar,San Diego,$,https://www.asukas-bar.com
+114,Tomoya's Ice Cream & Dessert,Houston,$$$$,https://www.tomoyas-ice-cream-&-dessert.com
+115,Jun's Bakery,Baltimore,$$$$,https://www.juns-bakery.com
+116,Kevin's Coffee & Tea,New York City,$$,https://www.kevins-coffee-&-tea.com
+117,Elizabeth's Ice Cream & Dessert,Kansas City,$$$$,https://www.elizabeths-ice-cream-&-dessert.com
+118,Nathaniel's Bakery,Las Vegas,$$$$,https://www.nathaniels-bakery.com
+119,John's Coffee & Tea,Tucson,$$,https://www.johns-coffee-&-tea.com
+120,Jasmine's Restuarant,Baltimore,$,https://www.jasmines-restuarant.com
+121,Vitaly's Bar,Phoenix,$,https://www.vitalys-bar.com
+122,Naum's Coffee & Tea,Las Vegas,$,https://www.naums-coffee-&-tea.com
+123,Sergey's Restuarant,Albuquerque,$$,https://www.sergeys-restuarant.com
+124,Constantine's Coffee & Tea,Virginia Beach,$,https://www.constantines-coffee-&-tea.com
+125,Spartacus's Restuarant,Philadelphia,$$$$,https://www.spartacuss-restuarant.com
+126,Elizabeth's Ice Cream & Dessert,Charlotte,$$$$,https://www.elizabeths-ice-cream-&-dessert.com
+127,Barry's Bakery,Omaha,$$,https://www.barrys-bakery.com
+128,Brianna's Bakery,Raleigh,$$,https://www.briannas-bakery.com
+129,Christopher's Ice Cream & Dessert,Atlanta,$,https://www.christophers-ice-cream-&-dessert.com
+130,Patricia's Restuarant,Denver,$$$,https://www.patricias-restuarant.com
+131,Tony's Bar,Phoenix,$,https://www.tonys-bar.com
+132,Jessica's Bakery,Chicago,$$$,https://www.jessicas-bakery.com
+133,Theresa's Ice Cream & Dessert,Nashville,$,https://www.theresas-ice-cream-&-dessert.com
+134,Jessica's Bakery,San Jose,$$$$,https://www.jessicas-bakery.com
+135,Victoria's Ice Cream & Dessert,Jacksonville,$$$,https://www.victorias-ice-cream-&-dessert.com
+136,Goran's Ice Cream & Dessert,Detroit,$,https://www.gorans-ice-cream-&-dessert.com
+137,Gingered's Bakery,Virginia Beach,$$$$,https://www.gingereds-bakery.com
+138,Per's Ice Cream & Dessert,Virginia Beach,$$,https://www.pers-ice-cream-&-dessert.com
+139,Erik's Restuarant,Houston,$$$,https://www.eriks-restuarant.com
+140,Susanne's Restuarant,Oklahoma City,$$$,https://www.susannes-restuarant.com
+141,Carlos's Bakery,Oklahoma City,$,https://www.carloss-bakery.com
+142,Alexandra's Bakery,Long Beach,$$$,https://www.alexandras-bakery.com
+143,David's Restuarant,Omaha,$$$,https://www.davids-restuarant.com
+144,Laura's Bar,Las Vegas,$$$,https://www.lauras-bar.com
+145,Melissa's Ice Cream & Dessert,Mesa,$$$$,https://www.melissas-ice-cream-&-dessert.com
+146,John's Coffee & Tea,Long Beach,$$,https://www.johns-coffee-&-tea.com
+147,Kevin's Bar,Oklahoma City,$$$,https://www.kevins-bar.com
+148,Ronald's Ice Cream & Dessert,Seattle,$$$,https://www.ronalds-ice-cream-&-dessert.com
+149,Monica's Coffee & Tea,Tulsa,$,https://www.monicas-coffee-&-tea.com
+150,Christian's Ice Cream & Dessert,Columbus,$$,https://www.christians-ice-cream-&-dessert.com
+151,Tammy's Coffee & Tea,San Jose,$,https://www.tammys-coffee-&-tea.com
+152,Jeremy's Restuarant,Tulsa,$,https://www.jeremys-restuarant.com
+153,Rebecca's Ice Cream & Dessert,Boston,$$$,https://www.rebeccas-ice-cream-&-dessert.com
+154,Michael's Restuarant,Atlanta,$$,https://www.michaels-restuarant.com
+155,Justin's Bakery,Virginia Beach,$$$,https://www.justins-bakery.com
+156,Marika's Restuarant,El Paso,$$,https://www.marikas-restuarant.com
+157,Marek's Ice Cream & Dessert,Tulsa,$$$$,https://www.mareks-ice-cream-&-dessert.com
+158,Damian's Restuarant,Dallas,$$$$,https://www.damians-restuarant.com
+159,Krzysztof's Bar,Charlotte,$$,https://www.krzysztofs-bar.com
+160,Marcelina's Restuarant,Charlotte,$$$$,https://www.marcelinas-restuarant.com
+161,Roy's Restuarant,Tucson,$,https://www.roys-restuarant.com
+162,Ethna's Restuarant,Baltimore,$$,https://www.ethnas-restuarant.com
+163,Rona's Ice Cream & Dessert,Dallas,$$,https://www.ronas-ice-cream-&-dessert.com
+164,Ida's Bakery,Philadelphia,$,https://www.idas-bakery.com
+165,Tracy's Bakery,Louisville,$$$,https://www.tracys-bakery.com
+166,Soraia's Ice Cream & Dessert,Fort Worth,$$$,https://www.soraias-ice-cream-&-dessert.com
+167,Kevin's Ice Cream & Dessert,Portland,$$$$,https://www.kevins-ice-cream-&-dessert.com
+168,Bryan's Bar,Omaha,$,https://www.bryans-bar.com
+169,Patricia's Coffee & Tea,Tucson,$$,https://www.patricias-coffee-&-tea.com
+170,Victory's Coffee & Tea,San Diego,$$$,https://www.victorys-coffee-&-tea.com
+171,Jeremiah's Coffee & Tea,Los Angeles,$$$$,https://www.jeremiahs-coffee-&-tea.com
+172,William's Coffee & Tea,Los Angeles,$$$$,https://www.williams-coffee-&-tea.com
+173,Nicole's Ice Cream & Dessert,San Jose,$$$$,https://www.nicoles-ice-cream-&-dessert.com
+174,Felicia's Restuarant,Indianapolis,$$,https://www.felicias-restuarant.com
+175,Rhonda's Ice Cream & Dessert,Colorado Springs,$$$$,https://www.rhondas-ice-cream-&-dessert.com
+176,Jason's Ice Cream & Dessert,Kansas City,$$$$,https://www.jasons-ice-cream-&-dessert.com
+177,Terrance's Bar,San Jose,$$,https://www.terrances-bar.com
+178,James's Coffee & Tea,Milwaukee,$$$$,https://www.jamess-coffee-&-tea.com
+179,Ray's Bakery,San Diego,$,https://www.rays-bakery.com
+180,Adam's Bakery,New York City,$$$,https://www.adams-bakery.com
+181,Banking's Bar,Indianapolis,$$$$,https://www.bankings-bar.com
+182,Fitriani's Bakery,Tulsa,$,https://www.fitrianis-bakery.com
+183,Karna's Bar,Boston,$$$$,https://www.karnas-bar.com
+184,Upik's Restuarant,Columbus,$$$,https://www.upiks-restuarant.com
+185,Edward's Bakery,Washington D.C.,$,https://www.edwards-bakery.com
+186,Jennifer's Coffee & Tea,Jacksonville,$,https://www.jennifers-coffee-&-tea.com
+187,Jason's Bakery,Albuquerque,$$,https://www.jasons-bakery.com
+188,Charles's Coffee & Tea,Columbus,$$$,https://www.charless-coffee-&-tea.com
+189,Kristin's Ice Cream & Dessert,Charlotte,$$$$,https://www.kristins-ice-cream-&-dessert.com
+190,Jeffrey's Ice Cream & Dessert,Raleigh,$$$,https://www.jeffreys-ice-cream-&-dessert.com
+191,Jennifer's Bakery,Minneapolis,$$$,https://www.jennifers-bakery.com
+192,Joshua's Coffee & Tea,Los Angeles,$$$,https://www.joshuas-coffee-&-tea.com
+193,Erin's Restuarant,Minneapolis,$$$$,https://www.erins-restuarant.com
+194,Janice's Bakery,Dallas,$$,https://www.janices-bakery.com
+195,Madison's Ice Cream & Dessert,El Paso,$,https://www.madisons-ice-cream-&-dessert.com
+196,Rotem's Ice Cream & Dessert,Fort Worth,$,https://www.rotems-ice-cream-&-dessert.com
+197,Naga's Bar,Nashville,$,https://www.nagas-bar.com
+198,Abigail's Ice Cream & Dessert,Atlanta,$$$$,https://www.abigails-ice-cream-&-dessert.com
+199,Avital's Restuarant,Arlington,$$$$,https://www.avitals-restuarant.com
+200,Naga's Bar,Houston,$$,https://www.nagas-bar.com
+201,Heather's Bakery,Raleigh,$$,https://www.heathers-bakery.com
+202,Jennifer's Bar,Louisville,$$$,https://www.jennifers-bar.com
+203,Christopher's Bakery,Chicago,$$,https://www.christophers-bakery.com
+204,Erika's Ice Cream & Dessert,Omaha,$$$$,https://www.erikas-ice-cream-&-dessert.com
+205,Michael's Coffee & Tea,Fort Worth,$$$$,https://www.michaels-coffee-&-tea.com
+206,Sean's Restuarant,Fresno,$$$,https://www.seans-restuarant.com
+207,Christina's Bar,Dallas,$$,https://www.christinas-bar.com
+208,Suzanne's Bakery,New York City,$,https://www.suzannes-bakery.com
+209,Luis's Restuarant,Sacramento,$$$,https://www.luiss-restuarant.com
+210,Chelsea's Bar,Detroit,$$$$,https://www.chelseas-bar.com
+211,Christina's Bar,El Paso,$$,https://www.christinas-bar.com
+212,Torsten's Coffee & Tea,Arlington,$$$$,https://www.torstens-coffee-&-tea.com
+213,Karl's Bar,Detroit,$,https://www.karls-bar.com
+214,Annette's Restuarant,Las Vegas,$$,https://www.annettes-restuarant.com
+215,Morgan's Coffee & Tea,San Jose,$$$,https://www.morgans-coffee-&-tea.com
+216,Patrik's Restuarant,Raleigh,$$$$,https://www.patriks-restuarant.com
+217,Martin's Bakery,San Diego,$$$,https://www.martins-bakery.com
+218,Attila's Restuarant,San Francisco,$$,https://www.attilas-restuarant.com
+219,Stephen's Ice Cream & Dessert,Fresno,$$$$,https://www.stephens-ice-cream-&-dessert.com
+220,Nikoletta's Bar,Boston,$$$,https://www.nikolettas-bar.com
+221,Mrinal's Bar,Virginia Beach,$,https://www.mrinals-bar.com
+222,Tanay's Restuarant,San Jose,$$$$,https://www.tanays-restuarant.com
+223,Shekhar's Restuarant,El Paso,$$$,https://www.shekhars-restuarant.com
+224,Heimanti's Restuarant,Mesa,$,https://www.heimantis-restuarant.com
+225,huge's Coffee & Tea,Philadelphia,$$$$,https://www.huges-coffee-&-tea.com
+226,rachita's Bar,Dallas,$$$,https://www.rachitas-bar.com
+227,Pratisara's Restuarant,Kansas City,$$$,https://www.pratisaras-restuarant.com
+228,Ray's Ice Cream & Dessert,Milwaukee,$,https://www.rays-ice-cream-&-dessert.com
+229,the creation's Coffee & Tea,Columbus,$,https://www.the-creations-coffee-&-tea.com
+230,Saurabh's Bakery,Kansas City,$$$,https://www.saurabhs-bakery.com
+231,Jonathan's Coffee & Tea,Nashville,$,https://www.jonathans-coffee-&-tea.com
+232,Michelle's Ice Cream & Dessert,Atlanta,$$$$,https://www.michelles-ice-cream-&-dessert.com
+233,Robert's Bakery,Albuquerque,$,https://www.roberts-bakery.com
+234,Barbara's Coffee & Tea,San Diego,$$,https://www.barbaras-coffee-&-tea.com
+235,Steven's Coffee & Tea,Columbus,$,https://www.stevens-coffee-&-tea.com
+236,Prophet's Coffee & Tea,San Jose,$$$$,https://www.prophets-coffee-&-tea.com
+237,Daniella's Ice Cream & Dessert,Jacksonville,$$$,https://www.daniellas-ice-cream-&-dessert.com
+238,Larisa's Coffee & Tea,San Francisco,$$$$,https://www.larisas-coffee-&-tea.com
+239,Angela's Restuarant,Tucson,$,https://www.angelas-restuarant.com
+240,Lara's Ice Cream & Dessert,Charlotte,$$$$,https://www.laras-ice-cream-&-dessert.com
+241,Jason's Coffee & Tea,San Jose,$,https://www.jasons-coffee-&-tea.com
+242,Patricia's Bar,Portland,$$$$,https://www.patricias-bar.com
+243,Christopher's Bakery,New York City,$,https://www.christophers-bakery.com
+244,Jason's Ice Cream & Dessert,New York City,$$$$,https://www.jasons-ice-cream-&-dessert.com
+245,Todd's Bakery,Albuquerque,$,https://www.todds-bakery.com
+246,Kelly's Ice Cream & Dessert,Albuquerque,$,https://www.kellys-ice-cream-&-dessert.com
+247,Lauren's Bakery,Atlanta,$$$$,https://www.laurens-bakery.com
+248,Eric's Coffee & Tea,Virginia Beach,$$,https://www.erics-coffee-&-tea.com
+249,Jessica's Restuarant,Seattle,$$$$,https://www.jessicas-restuarant.com
+250,Jessica's Coffee & Tea,Memphis,$,https://www.jessicas-coffee-&-tea.com
+1001,McDonald's,Memphis,$,https://www.mcdonalds.com
+1002,McDonald's,San Francisco,$,https://www.mcdonalds.com
+1003,McDonald's,New York City,$,https://www.mcdonalds.com
+1004,McDonald's,Houston,$,https://www.mcdonalds.com
+1005,McDonald's,Oakland,$,https://www.mcdonalds.com
+1006,McDonald's,Minneapolis,$,https://www.mcdonalds.com
+1007,McDonald's,Atlanta,$,https://www.mcdonalds.com
+1008,McDonald's,San Antonio,$,https://www.mcdonalds.com
+1009,McDonald's,New York City,$,https://www.mcdonalds.com
+1010,McDonald's,Miami,$,https://www.mcdonalds.com
+1011,Olive Garden,Oklahoma City,$$,https://www.olivegarden.com
+1012,Olive Garden,New York City,$$,https://www.olivegarden.com
+1013,Olive Garden,San Jose,$$,https://www.olivegarden.com
+1014,Olive Garden,Arlington,$$,https://www.olivegarden.com
+1015,Olive Garden,San Jose,$$,https://www.olivegarden.com
+1016,Olive Garden,Minneapolis,$$,https://www.olivegarden.com
+1017,Olive Garden,Houston,$$,https://www.olivegarden.com
+1018,Olive Garden,San Jose,$$,https://www.olivegarden.com
+1019,Olive Garden,New York City,$$,https://www.olivegarden.com
+1020,Olive Garden,New York City,$$,https://www.olivegarden.com
+1021,Chipotle,Fort Worth,$,https://www.chipotle.com
+1022,Chipotle,Washington D.C.,$,https://www.chipotle.com
+1023,Chipotle,Philadelphia,$,https://www.chipotle.com
+1024,Chipotle,Seattle,$,https://www.chipotle.com
+1025,Chipotle,San Diego,$,https://www.chipotle.com
+1026,Chipotle,Arlington,$,https://www.chipotle.com
+1027,Chipotle,Columbus,$,https://www.chipotle.com
+1028,Chipotle,San Diego,$,https://www.chipotle.com
+1029,Chipotle,Las Vegas,$,https://www.chipotle.com
+1030,Chipotle,Colorado Springs,$,https://www.chipotle.com
+1031,Panda Express,Washington D.C.,$,https://www.pandaexpress.com
+1032,Panda Express,Oakland,$,https://www.pandaexpress.com
+1033,Panda Express,Dallas,$,https://www.pandaexpress.com
+1034,Panda Express,Colorado Springs,$,https://www.pandaexpress.com
+1035,Panda Express,Las Vegas,$,https://www.pandaexpress.com
+1036,Panda Express,El Paso,$,https://www.pandaexpress.com
+1037,Panda Express,Oakland,$,https://www.pandaexpress.com
+1038,Panda Express,Albuquerque,$,https://www.pandaexpress.com
+1039,Panda Express,San Antonio,$,https://www.pandaexpress.com
+1040,Panda Express,Chicago,$,https://www.pandaexpress.com

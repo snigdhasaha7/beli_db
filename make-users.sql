@@ -6,13 +6,11 @@ CREATE TEMPORARY TABLE users_temp (
     email               VARCHAR(50),
     pwd                 VARCHAR(50),
     real_name           VARCHAR(50),
-    user_picture        VARCHAR(200),
     user_location       VARCHAR(200),
+    user_picture        VARCHAR(200),
     PRIMARY KEY (user_id)
 );
 
 LOAD DATA LOCAL INFILE 'data/users_data.csv' INTO TABLE users_temp
 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 
-
--- TODO INSERT CURSOR FUNCTION HERE

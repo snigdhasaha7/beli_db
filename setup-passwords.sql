@@ -37,8 +37,8 @@ CREATE PROCEDURE sp_add_user(
                   new_email VARCHAR(50),
                   password VARCHAR(50),
                   new_real_name VARCHAR(50),
-                  new_user_picture VARCHAR(200),
-                  new_user_location VARCHAR(200)
+                  new_user_location VARCHAR(200),
+                  new_user_picture VARCHAR(200)
                 )
 BEGIN
   -- made temporary variables for ease
@@ -53,10 +53,10 @@ BEGIN
 
   -- insertion into table
   INSERT INTO users_info (username, email, salt, password_hash,
-                        real_name, user_picture, user_location)
+                        real_name, user_location, user_picture)
     VALUES (new_username, new_email,
             new_salt, new_password_hash, new_real_name,
-            new_user_picture, new_user_location);
+            new_user_location, new_user_picture);
 END !
 DELIMITER ;
 

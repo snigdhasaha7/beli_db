@@ -27,11 +27,11 @@ CREATE TABLE users_info (
     password_hash		BINARY(64)          NOT NULL,
     -- user's real name, not mandatory
     real_name           VARCHAR(50),
+    -- user's approx. location for restaurant recommendations, not mandatory
+    user_location       VARCHAR(200),
     -- user's display photo, not mandatory
     -- should be a link to a file
     user_picture        VARCHAR(200),
-    -- user's approx. location for restaurant recommendations, not mandatory
-    user_location       VARCHAR(200),
     PRIMARY KEY (user_id)
 );
 
@@ -82,13 +82,13 @@ CREATE TABLE restaurant (
     restaurant_id    	INTEGER             AUTO_INCREMENT,
     -- must have a restaurant name, but it need not be unique
     restaurant_name    	VARCHAR(50)         NOT NULL,
-    -- website url not mandatory
-    website    	        VARCHAR(200),
     -- approximate location of restaurant, for recommendations
     restaurant_location VARCHAR(200),
     -- describes price range with one of the following choices
     price_range    	    VARCHAR(5)
         CHECK (price_range IN (NULL, '$', '$$', '$$$', '$$$$')),
+    -- website url not mandatory
+    website    	        VARCHAR(200),
 
     PRIMARY KEY (restaurant_id)
 );

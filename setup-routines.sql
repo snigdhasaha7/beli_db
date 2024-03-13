@@ -213,8 +213,8 @@ BEGIN
     DECLARE cur_email               VARCHAR(50);
     DECLARE cur_pwd                 VARCHAR(50);
     DECLARE cur_real_name           VARCHAR(50);
-    DECLARE cur_user_picture        VARCHAR(200);
     DECLARE cur_user_location       VARCHAR(200);
+    DECLARE cur_user_picture        VARCHAR(200);
 
     DECLARE cur CURSOR FOR  
         SELECT * FROM users_temp;
@@ -226,10 +226,10 @@ BEGIN
 
     WHILE NOT DONE DO
         FETCH cur INTO cur_user_id, cur_username, cur_email, cur_pwd,
-                       cur_real_name, cur_user_picture, cur_user_location;
+                       cur_real_name, cur_user_location, cur_user_picture;
         IF NOT DONE THEN
             CALL sp_add_user(cur_username, cur_email, cur_pwd,
-                cur_real_name, cur_user_picture, cur_user_location);
+                cur_real_name, cur_user_location, cur_user_picture);
         END IF;
     END WHILE;
     CLOSE cur;
