@@ -3,7 +3,7 @@ TODO: Student name(s): Snigdha Saha, Sreemanti Dey
 TODO: Student email(s): snigdha@caltech.edu, sdey@caltech.edu
 TODO: Beli Food Review App
 """
-import sys  # to print error messages to sys.stderr
+import sys  # to print error messages to sys.stderr.write
 import mysql.connector
 # To get error codes from the connector, useful for user-friendly
 # error-handling
@@ -26,7 +26,8 @@ def get_conn():
           # SHOW VARIABLES WHERE variable_name LIKE 'port';
           port='3306',  # this may change!
           password='clientpw',
-          database='belidb' # replace this with your database name
+          database='belidb', # replace this with your database name
+          autocommit=True
         )
         print('Successfully connected.')
         return conn
@@ -36,14 +37,14 @@ def get_conn():
         # simulated program. Their user information would be in a users table
         # specific to your database; hence the DEBUG use.
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR and DEBUG:
-            sys.stderr('Incorrect username or password when connecting to DB.')
+            sys.stderr.write('Incorrect username or password when connecting to DB.')
         elif err.errno == errorcode.ER_BAD_DB_ERROR and DEBUG:
-            sys.stderr('Database does not exist.')
+            sys.stderr.write('Database does not exist.')
         elif DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
         else:
             # A fine catchall client-facing message.
-            sys.stderr('An error occurred, please contact the administrator.')
+            sys.stderr.write('An error occurred, please contact the administrator.')
         sys.exit(1)
 
 # ----------------------------------------------------------------------
@@ -55,15 +56,17 @@ def show_options(username):
     viewing <x>, filtering results with a flag (e.g. -s to sort),
     sending a request to do <x>, etc.
     """
+    print(f'Welcome, {username}!')
     print('What would you like to do? ')
     print('  (u) - update profile')
     print('  (r) - rank a new restaurant')
     print('  (uR) - update a ranking')
     print('  (a) - add a friend')
     print('  (l) - get all restaurants in a location')
+    print('  (tL) - get top restaurant in a location')
     print('  (q) - quit')
     print()
-    ans = input('Enter an option: ').lower()
+    ans = input('Enter an option: ')
     if ans == 'q':
         quit_ui(username)
     elif ans == 'u':
@@ -71,42 +74,77 @@ def show_options(username):
         print('(u) - username')
         print('(n) - name')
         print('(e) - email')
-        print('(pfp) - profile picture') 
+        print('(pfp) - picture') 
         print('(pw) - password')
         print('(l) - location')
         choice = input('Enter an option: ').lower()
-        val = input(f'Enter a new value for {choice}')
+        param = ""
+        if choice == 'u':
+            param = 'username'
+        elif choice == 'n':
+            param = 'real_name'
+        elif choice == 'e':
+            param = 'email'
+        elif choice == 'pw':
+            param = 'pw'
+        elif choice == 'l':
+            param = 'user_location'
+        elif choice == 'pfp':
+            param = 'user_picture'
+
+        val = input(f'Enter a new value for {param}: ')
         if choice != 'pw' and choice != 'n':
             val = val.lower() 
-        update_user_profile(username, choice, val) 
+        update_user_profile(username, param, val) 
     elif ans == 'r': 
-        rest_name = input('Enter a restaurant name').lower() 
-        location = input('Enter the restaurant location').lower()
-        ranking = float(input("Enter a ranking out of 10:"))
-        description = input("(optional)\
-                            Enter a description of your experience: ").lower()
-        rank_a_restaurant(rest_name, location, ranking, description)
+        rest_name = input('Enter a restaurant name: ')
+        location = input('Enter the restaurant location: ')
+        ranking = float(input("Enter a ranking out of 10: "))
+        description = input(("(optional) "
+                            "Enter a description of your experience: "))
+        rank_a_restaurant(username, rest_name, location, ranking, description)
     elif ans == 'uR': 
-        rest_name = input('Enter a restaurant name').lower() 
-        location = input('Enter the restaurant location').lower()
+        rest_name = input('Enter a restaurant name: ')
+        location = input('Enter the restaurant location: ')
         print('What do you want to update?')
-        print('(r) - ranking')
+        print('(r) - rating')
         print('(d) - description')
         choice = input('Enter a choice: ').lower()
-        val = input(f'Enter a new value for {choice}')
+        param = "" 
+        if choice == "r":
+            param = "rating"
+        elif choice == "d":
+            param = "rating_description"
+        else:
+            print("Invalid Choice")
+            quit_ui(username)
+        val = input(f'Enter a new value for {param}: ')
         if choice == 'r':
             val = float(val)
+        update_a_ranking(username, rest_name, location, param, val)
     elif ans == 'a':
-        friend_user = input('Enter a username to add to friends:').lower() 
+        friend_user = input('Enter a username to add to friends: ').lower() 
         add_a_friend(username, friend_user) 
     elif ans == 'l':
-        location = input("Enter the location to search in: ").lower()
+        location = input("Enter the location to search in: ")
         restaurants = get_all_restaurants_in_location(location)
-        for i, rest in enumerate(restaurants): 
-            print(f'{i+1}: {rest}')
+        i = 1
+        for rest in restaurants: 
+            print(f'{i}. {rest}')
+            print(f'Cuisines: {str(restaurants[rest]["cuisines"])[1:-1]}')
+            print(f'Category: {restaurants[rest]["category"]}')
+    elif ans == 'tL':
+        location = input("Enter the location to search in: ")
+        rest_name, cuisines, category = \
+            get_top_restaurant_in_location(location)
+        print(f'The top restaurant in {location} is {rest_name}.')
+        print(f'They serve the following cuisine(s):')
+        for cuisine in cuisines:
+            print(cuisine)
+        print(f'{rest_name} is in category {category}.')
     else:
         print("Invalid Choice. Please try again")
-        show_options()
+        show_options(username)
 
 
 def quit_ui(username):
@@ -120,19 +158,20 @@ def quit_ui(username):
 def authenticate_user(username, password):
     cursor = conn.cursor() 
 
-    sql = "CALL authenticate(\'%s\', \'%s\');" % (username, password)
+    sql = "SELECT authenticate(\'%s\', \'%s\');" % (username, password)
 
     try:
         cursor.execute(sql)
-        output = int(cursor.fetchone())
+        output = int(cursor.fetchone()[0])
         return output
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('Invalid credentials!')
+            sys.stderr.write('Invalid credentials!')
+            exit()
 
 
 def create_user(username, email, password, real_name, user_picture, user_location):
@@ -143,16 +182,17 @@ def create_user(username, email, password, real_name, user_picture, user_locatio
     
     try:
         cursor.execute(sql)
-        output = int(cursor.fetchone())
-        return output
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('Either the username or email is already taken, or\
-                       invalid data entered!')
+            err_msg = ('Either the username or email is already taken, or '
+                       'invalid data entered!')
+            sys.stderr.write(err_msg)
+            exit()
+
 
 def update_user_profile(username, update_param, update_val):
     cursor = conn.cursor()
@@ -162,8 +202,8 @@ def update_user_profile(username, update_param, update_val):
         sql = 'CALL sp_change_password(\'%s\', \'%s\');' \
                 % (username, update_val)
     else:
-        sql = 'UPDATE users SET\
-            \'%s\' = \'%s\' \
+        sql = 'UPDATE users_info SET\
+            %s = \'%s\' \
             WHERE username = \'%s\';' % (update_param, update_val, username)
     
     if update_param == 'username':
@@ -172,20 +212,23 @@ def update_user_profile(username, update_param, update_val):
         except mysql.connector.Error as err:
             # If you're testing, it's helpful to see more details printed.
             if DEBUG:
-                sys.stderr(err)
+                sys.stderr.write(err)
                 sys.exit(1)
             else:
-                sys.stderr('Sorry, that username is taken!')
+                sys.stderr.write('Sorry, that username is taken!')
+                exit()
     else:
         try:
             cursor.execute(sql)
         except mysql.connector.Error as err:
             # If you're testing, it's helpful to see more details printed.
             if DEBUG:
-                sys.stderr(err)
+                sys.stderr.write(err)
                 sys.exit(1)
             else:
-                sys.stderr(f'An error occurred updating your profile.')
+                sys.stderr.write(f'An error occurred updating your profile.')
+                exit()
+
 
 def get_user_id(username):
     cursor = conn.cursor()
@@ -193,31 +236,39 @@ def get_user_id(username):
         WHERE username = \'%s\';' % (username)
     try:
         cursor.execute(user_id_query)
-        user_id = cursor.fetchone()
+        user_id = int(cursor.fetchone()[0])
         return user_id
     except mysql.connector.Error as err:
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr(f'user {username} not found')
+            sys.stderr.write(f'user {username} not found')
+            exit()
 
 
 def get_rest_id(restaurant_name, location):
     cursor = conn.cursor()
+    restaurant_name = restaurant_name.replace('\'', '\'\'')
     rest_id_query = 'SELECT restaurant_id FROM restaurant\
-        WHERE restaurant_name = \'%s\' AND location = \'%s\';' \
-            % (restaurant_name, location)
+        WHERE restaurant_name = \'%s\' AND \
+        restaurant_location = \'%s\';' % (restaurant_name, location)
+    
     try:
         cursor.execute(rest_id_query)
-        rest_id = cursor.fetchone()
+        temp_id = cursor.fetchone()
+        if temp_id is None:
+            sys.stderr.write('restaurant not found')
+            exit()
+        rest_id = int(temp_id[0])
         return rest_id
     except mysql.connector.Error as err:
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('restaurant not found')
+            sys.stderr.write('restaurant not found')
+            exit()
 
 
 def rank_a_restaurant(username, rest_name, location, ranking, description):
@@ -226,31 +277,32 @@ def rank_a_restaurant(username, rest_name, location, ranking, description):
     rest_id = get_rest_id(rest_name,location)
 
     sql = "INSERT INTO rating (rating, rating_description) VALUES \
-        (\'%f\', \'%s\');" \
-            % (user_id, rest_id, ranking, description)
+        (\'%f\', \'%s\');" % (ranking, description)
     
     try:
         cursor.execute(sql)
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred when ranking the restaurant')
+            sys.stderr.write('An error occurred when ranking the restaurant')
+            exit()
     
     rating_id_sql = "SELECT LAST_INSERT_ID();"
 
     try:
         cursor.execute(rating_id_sql)
-        rating_id = cursor.fetchone() 
+        rating_id = int(cursor.fetchone()[0])
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred')
+            sys.stderr.write('An error occurred')
+            exit()
     
     rating_sql = "INSERT INTO user_rating VALUES (\'%d\', \'%d\', \'%d\');" \
                     % (user_id, rest_id, rating_id)
@@ -260,10 +312,11 @@ def rank_a_restaurant(username, rest_name, location, ranking, description):
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred')
+            sys.stderr.write('An error occurred')
+            exit()
 
 
 def update_a_ranking(username, rest_name, location, param, new_val):
@@ -279,17 +332,18 @@ def update_a_ranking(username, rest_name, location, param, new_val):
             % (user_id, rest_id)
     try:
         cursor.execute(id_sql)
-        rating_id = cursor.fetchone()
+        rating_id = int(cursor.fetchone()[0])
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('You have not ranked this restaurant yet.')
+            sys.stderr.write('You have not ranked this restaurant yet.')
+            exit()
     
-    update_sql = 'UPDATE rating SET \'%s\' = \'%s\'\
-                WHERE rating_id = \'%s\';'\
+    update_sql = 'UPDATE rating SET %s = \'%s\'\
+                WHERE rating_id = \'%d\';'\
                 % (param, new_val, rating_id)
     
     try:
@@ -297,10 +351,12 @@ def update_a_ranking(username, rest_name, location, param, new_val):
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred when updating the rating')
+            sys.stderr.write('An error occurred when updating the rating')
+            exit()
+
 
 def add_a_friend(username, friend_user):
     cursor = conn.cursor()
@@ -315,33 +371,97 @@ def add_a_friend(username, friend_user):
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred.')
+            sys.stderr.write('An error occurred.')
+            exit()
 
 
 def get_all_restaurants_in_location(location):
     cursor = conn.cursor() 
     
     # calling UDF
-    sql = 'CALL top_restaurant_loc (%s);' % location 
+    sql = 'SELECT restaurant_name, cuisine_name, category_name FROM\
+        restaurant NATURAL LEFT JOIN in_cuisine NATURAL LEFT JOIN\
+        cuisine NATURAL LEFT JOIN in_category NATURAL LEFT JOIN category\
+        WHERE restaurant_location = \'%s\';' % location 
     try:
         cursor.execute(sql)
         rows = cursor.fetchall()
         restaurants = {}
         for row in rows:
-            (rest_name, cuisine, category) = (row) # tuple unpacking!
-            restaurants[rest_name] = {'cuisine': cuisine, 'category': category}
+            (rest_name, cuisine_name, category_name) = (row)
+            if rest_name in restaurants: 
+                restaurants[rest_name]['cuisines'].append(cuisine_name)
+            else:
+                restaurants[rest_name] = \
+                    {'cuisines': [cuisine_name], 'category': category_name}
         return restaurants
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred fetching restaurants')
+            sys.stderr.write('An error occurred fetching restaurants')
+            exit()
 
+
+def get_top_restaurant_in_location(location):
+    cursor = conn.cursor()
+
+    sql = "SELECT top_restaurant_loc(\'%s\');" % location
+
+    try:
+        cursor.execute(sql)
+        rest_name = cursor.fetchone()[0]
+    except mysql.connector.Error as err:
+        # If you're testing, it's helpful to see more details printed.
+        if DEBUG:
+            sys.stderr.write(err)
+            sys.exit(1)
+        else:
+            sys.stderr.write('An error occurred.')
+            exit()
+    
+    rest_id = get_rest_id(rest_name, location)
+    
+    cuisine_sql = 'SELECT cuisine_name FROM in_cuisine NATURAL LEFT JOIN cuisine\
+                WHERE restaurant_id = \'%d\';' % (rest_id) 
+    
+    try:
+        cursor.execute(cuisine_sql)
+        rows = cursor.fetchall()
+        cuisines = [] 
+        for row in rows:
+            (cuisine_name) = row
+            cuisines.append(cuisine_name)
+    except mysql.connector.Error as err:
+        # If you're testing, it's helpful to see more details printed.
+        if DEBUG:
+            sys.stderr.write(err)
+            sys.exit(1)
+        else:
+            sys.stderr.write('An error occurred.')
+            exit()
+
+    category_sql = 'SELECT category_name FROM in_category NATURAL LEFT JOIN category\
+                WHERE restaurant_id = \'%d\';' % (rest_id) 
+    
+    try:
+        cursor.execute(category_sql)
+        category = cursor.fetchone()[0]
+    except mysql.connector.Error as err:
+        # If you're testing, it's helpful to see more details printed.
+        if DEBUG:
+            sys.stderr.write(err)
+            sys.exit(1)
+        else:
+            sys.stderr.write('An error occurred.')
+            exit()
+    
+    return rest_name, cuisines, category
 
 def main():
     """
@@ -350,26 +470,27 @@ def main():
     print("Sign Up or Log In?")
     print("(s) - sign up")
     print("(l) - log in")
-    choice = input("Enter one of the above:")
+    choice = input("Enter one of the above: ")
     if choice == "l":
         username = input('Enter your username: ').lower()
         userpw = input('Enter your password: ')
         output = authenticate_user(username, userpw)
         if output == 0:
             print("Invalid Credentials.")
-            return
+            sys.exit(1)
     elif choice == "s":
         print("Please enter the following details:")
-        username = input("Username:").lower() 
-        email = input("Email:").lower() 
-        real_name = input("Full Name:")
-        user_picture = input("Enter a link to your pfp:").lower()
-        user_location = input("Enter your location").lower()
-        password = input("Enter a strong password:".lower())
+        username = input("Username: ").lower() 
+        email = input("Email: ").lower() 
+        real_name = input("Full Name: ")
+        user_picture = input("Enter a link to your pfp: ").lower()
+        user_location = input("Enter your location: ").lower()
+        password = input("Enter a strong password: ".lower())
         create_user(username, email, password, real_name,\
                     user_picture, user_location)
     else:
         print("Invalid choice. Goodbye!")
+        sys.exit(1)
     show_options(username)
 
 

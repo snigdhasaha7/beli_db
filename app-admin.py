@@ -3,7 +3,7 @@ TODO: Student name(s): Snigdha Saha, Sreemanti Dey
 TODO: Student email(s): snigdha@caltech.edu, sdey@caltech.edu
 TODO: Beli Food Review App
 """
-import sys  # to print error messages to sys.stderr
+import sys  # to print error messages to sys.stderr.write
 import mysql.connector
 # To get error codes from the connector, useful for user-friendly
 # error-handling
@@ -30,7 +30,8 @@ def get_conn():
           # SHOW VARIABLES WHERE variable_name LIKE 'port';
           port='3306',  # this may change!
           password='adminpw',
-          database='belidb' # replace this with your database name
+          database='belidb', # replace this with your database name
+          autocommit=True
         )
         print('Successfully connected.')
         return conn
@@ -40,14 +41,14 @@ def get_conn():
         # simulated program. Their user information would be in a users table
         # specific to your database; hence the DEBUG use.
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR and DEBUG:
-            sys.stderr('Incorrect username or password when connecting to DB.')
+            sys.stderr.write('Incorrect username or password when connecting to DB.')
         elif err.errno == errorcode.ER_BAD_DB_ERROR and DEBUG:
-            sys.stderr('Database does not exist.')
+            sys.stderr.write('Database does not exist.')
         elif DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
         else:
             # A fine catchall client-facing message.
-            sys.stderr('An error occurred, please contact the administrator.')
+            sys.stderr.write('An error occurred, please contact the administrator.')
         sys.exit(1)
 
 # ----------------------------------------------------------------------
@@ -152,10 +153,10 @@ def get_all_users():
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred fetching all users')
+            sys.stderr.write('An error occurred fetching all users')
 
 
 def get_rest_id(restaurant_name, location):
@@ -165,14 +166,14 @@ def get_rest_id(restaurant_name, location):
             % (restaurant_name, location)
     try:
         cursor.execute(rest_id_query)
-        rest_id = cursor.fetchone()
+        rest_id = int(cursor.fetchone()[0])
         return rest_id
     except mysql.connector.Error as err:
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('restaurant not found')
+            sys.stderr.write('restaurant not found')
 
 
 def get_cuisine_id(cuisine):
@@ -181,14 +182,14 @@ def get_cuisine_id(cuisine):
         WHERE cuisine_name = \'%s\';' % (cuisine)
     try:
         cursor.execute(cuisine_id_query)
-        cuisine_id = cursor.fetchone()
+        cuisine_id = int(cursor.fetchone()[0])
         return cuisine_id
     except mysql.connector.Error as err:
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr(f'user {username} not found')
+            sys.stderr.write(f'user {username} not found')
 
 
 def get_category_id(category):
@@ -197,14 +198,14 @@ def get_category_id(category):
         WHERE category_name = \'%s\';' % (category)
     try:
         cursor.execute(category_id_query)
-        category_id = cursor.fetchone()
+        category_id = int(cursor.fetchone()[0])
         return category_id
     except mysql.connector.Error as err:
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr(f'user {username} not found')
+            sys.stderr.write(f'user {username} not found')
 
 
 def add_a_restaurant(category, restaurant_name, 
@@ -221,10 +222,10 @@ def add_a_restaurant(category, restaurant_name,
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred when inserting the restaurant.')
+            sys.stderr.write('An error occurred when inserting the restaurant.')
 
     rest_id_sql = "SELECT LAST_INSERT_ID();"
 
@@ -234,10 +235,10 @@ def add_a_restaurant(category, restaurant_name,
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred')
+            sys.stderr.write('An error occurred')
 
     category_id = get_category_id(category)
 
@@ -249,10 +250,10 @@ def add_a_restaurant(category, restaurant_name,
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred')
+            sys.stderr.write('An error occurred')
 
     for cuisine in cuisines:
         cuisine_id = get_cuisine_id(cuisine)
@@ -265,10 +266,10 @@ def add_a_restaurant(category, restaurant_name,
         except mysql.connector.Error as err:
             # If you're testing, it's helpful to see more details printed.
             if DEBUG:
-                sys.stderr(err)
+                sys.stderr.write(err)
                 sys.exit(1)
             else:
-                sys.stderr('An error occurred')
+                sys.stderr.write('An error occurred')
     
 
 def update_a_restaurant(param, new_val, rest_name, location):
@@ -287,10 +288,10 @@ def update_a_restaurant(param, new_val, rest_name, location):
         except mysql.connector.Error as err:
             # If you're testing, it's helpful to see more details printed.
             if DEBUG:
-                sys.stderr(err)
+                sys.stderr.write(err)
                 sys.exit(1)
             else:
-                sys.stderr('An error occurred.')
+                sys.stderr.write('An error occurred.')
 
         category_sql = "INSERT INTO in_category VALUES (\'%d\', \'%d\');" \
                     (rest_id, category_id)
@@ -300,10 +301,10 @@ def update_a_restaurant(param, new_val, rest_name, location):
         except mysql.connector.Error as err:
             # If you're testing, it's helpful to see more details printed.
             if DEBUG:
-                sys.stderr(err)
+                sys.stderr.write(err)
                 sys.exit(1)
             else:
-                sys.stderr('An error occurred')
+                sys.stderr.write('An error occurred')
         
         
 
@@ -318,10 +319,10 @@ def update_a_restaurant(param, new_val, rest_name, location):
         except mysql.connector.Error as err:
             # If you're testing, it's helpful to see more details printed.
             if DEBUG:
-                sys.stderr(err)
+                sys.stderr.write(err)
                 sys.exit(1)
             else:
-                sys.stderr('This restaurant is aready associated \
+                sys.stderr.write('This restaurant is aready associated \
                            with this cuisine')
 
     else:
@@ -334,10 +335,10 @@ def update_a_restaurant(param, new_val, rest_name, location):
         except mysql.connector.Error as err:
             # If you're testing, it's helpful to see more details printed.
             if DEBUG:
-                sys.stderr(err)
+                sys.stderr.write(err)
                 sys.exit(1)
             else:
-                sys.stderr('An error occurred when updating the restaurant.')
+                sys.stderr.write('An error occurred when updating the restaurant.')
 
 
 def find_chains():
@@ -350,10 +351,10 @@ def find_chains():
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
-            sys.stderr(err)
+            sys.stderr.write(err)
             sys.exit(1)
         else:
-            sys.stderr('An error occurred when updating chains.')
+            sys.stderr.write('An error occurred when updating chains.')
 
 
 def main():
