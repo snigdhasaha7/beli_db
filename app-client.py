@@ -56,6 +56,7 @@ def show_options(username):
     viewing <x>, filtering results with a flag (e.g. -s to sort),
     sending a request to do <x>, etc.
     """
+    print(f'Welcome, {username}!')
     print('What would you like to do? ')
     print('  (u) - update profile')
     print('  (r) - rank a new restaurant')
