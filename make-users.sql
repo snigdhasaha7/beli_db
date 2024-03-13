@@ -1,9 +1,10 @@
+-- Beli Final Project Users Setup
+
 -- This file is intended to set up a temporary user table
 -- before populating users_info with salt, password hash,
 -- and personal information.
 
 DROP TABLE IF EXISTS users_temp;
-
 
 -- Similar structure to users_info but without salt and password hash.
 CREATE TEMPORARY TABLE users_temp (
@@ -16,7 +17,6 @@ CREATE TEMPORARY TABLE users_temp (
     user_picture        VARCHAR(200),
     PRIMARY KEY (user_id)
 );
-
 
 -- Populate the temporary table from local data.
 LOAD DATA LOCAL INFILE 'data/users_data.csv' INTO TABLE users_temp

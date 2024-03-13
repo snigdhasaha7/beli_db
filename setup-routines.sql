@@ -1,3 +1,5 @@
+-- Beli Final Project Procedural SQL
+
 DROP FUNCTION   IF EXISTS top_restaurant_loc;
 DROP FUNCTION   IF EXISTS top_restaurant_friends;
 DROP PROCEDURE  IF EXISTS sp_find_chains;
@@ -8,10 +10,11 @@ DROP VIEW       IF EXISTS chain_rests;
 DROP PROCEDURE  IF EXISTS sp_insert_users;
 
 -- UDF 1
-
 DELIMITER !
 
 -- Get the top rated restaurant in the user-given location.
+-- Arbitrarily breaks ties if multiple restaurants are equally rated.
+-- Returns NULL if location is not found.
 CREATE FUNCTION top_restaurant_loc (loc VARCHAR(200)) 
                                     RETURNS VARCHAR(50) DETERMINISTIC
 BEGIN
@@ -45,15 +48,15 @@ DELIMITER ;
 
 
 
-
 -- UDF 2
-
 DELIMITER !
 
 -- Get the highest rated restaurant among a user's friends. This
 -- function is not based on average ratings for a restaurant,
 -- rather, it is entirely dependent on the singular ratings of 
 -- a user's friends.
+-- Breaks ties arbitrarily.
+-- Returns NULL if there are no such restaurants.
 CREATE FUNCTION top_restaurant_friends (input_username VARCHAR(50)) 
                                     RETURNS VARCHAR(50) DETERMINISTIC
 BEGIN
@@ -84,6 +87,9 @@ DELIMITER ;
 
 
 
+
+-- TODO insert documention
+-- and justification for why view
 CREATE VIEW chain_rests AS
     SELECT restaurant_id, restaurant_name, website FROM restaurant
         WHERE restaurant_name IN
@@ -136,10 +142,10 @@ DELIMITER ;
 
 
 
+
 -- Trigger with procedure on a materialized view.
 -- We keep an MV of the highest average rating restaurants by cuisine.
 -- This MV will be updated every time a new rating is added.
-
 CREATE TABLE mv_top_restaurants_by_cuisine (
     cuisine_id 	         INTEGER         NOT NULL,
     restaurant_id        INTEGER         NOT NULL,
@@ -234,7 +240,7 @@ DELIMITER ;
 
 
 
-
+-- TODO document this
 DELIMITER ! 
 CREATE PROCEDURE sp_insert_users () 
 BEGIN 

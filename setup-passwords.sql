@@ -1,9 +1,9 @@
+-- Beli Final Project Password Management
+
 DROP FUNCTION IF EXISTS make_salt; 
 DROP PROCEDURE IF EXISTS sp_add_user;
 DROP FUNCTION IF EXISTS authenticate; 
 DROP PROCEDURE IF EXISTS sp_change_password;
-
--- CS 121 24wi: Password Management (Beli Final Project)
 
 -- (Provided) This function generates a specified number of characters for using as a
 -- salt in passwords.
@@ -59,6 +59,7 @@ BEGIN
             new_user_location, new_user_picture);
 END !
 DELIMITER ;
+
 
 -- Authenticates the specified username and password against the data
 -- in the users_info table.  Returns 1 if the user appears in the table, and the

@@ -12,7 +12,6 @@ DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS friend;
 DROP TABLE IF EXISTS users_info;
 
-
 -- Contains information about users of the app, including login
 -- and authentication and personal information.
 CREATE TABLE users_info (
@@ -89,7 +88,6 @@ CREATE TABLE restaurant (
 
     PRIMARY KEY (restaurant_id)
 );
-
 
 -- A referencing relation to model a restaurant belonging to a certain
 -- category, such as cafe, bakery, etc. One restaurant can only belong to
