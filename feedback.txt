@@ -1,0 +1,10 @@
+1. Implement go back to menu when an option is done (for both python files)
+2. Have a message for not matching location (and other attributes)
+3. In readme, have an example user
+4. Test each thing in makefile one at a time for warnings 
+5. Make it clear in the menu what the users (with Success Messages) (where to export and ask for filename)
+6. Make it clear what the price range (optional) should be, give the choices for the four types (use a different word than range)
+7. error handling (while loop rehandling) (handle bad input, get_rest_id() should be used more)
+8. add to readme - example restaurant 
+9. Success messages for everything
+10. Be more descriptive about the prompt messages (c) 
