@@ -177,6 +177,7 @@ def authenticate_user(username, password):
     try:
         cursor.execute(sql)
         output = int(cursor.fetchone()[0])
+        cursor.fetchall()
         return output
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
@@ -225,6 +226,7 @@ def update_user_profile(update_param, update_val):
         try:
             cursor.execute(sql)
             username = cursor.fetchone()[0].replace('\'', "")
+            cursor.fetchall()
             print(f'Successfully updated username to {username}!')
             show_options(True)
         except mysql.connector.Error as err:
@@ -255,7 +257,13 @@ def get_user_id(username):
         WHERE username = \'%s\';' % (username)
     try:
         cursor.execute(user_id_query)
-        user_id = int(cursor.fetchone()[0])
+        temp_id = cursor.fetchone()
+        cursor.fetchall()
+        if temp_id is None:
+            print(f'{username} not found!')
+            show_options()
+            return
+        user_id = int(temp_id[0])
         return user_id
     except mysql.connector.Error as err:
         if DEBUG:
@@ -276,9 +284,11 @@ def get_rest_id(restaurant_name, location):
     try:
         cursor.execute(rest_id_query)
         temp_id = cursor.fetchone()
+        cursor.fetchall()
         if temp_id is None:
             print(f'{restaurant_name} was not found in {location}!')
             show_options(username)
+            return
         rest_id = int(temp_id[0])
         return rest_id
     except mysql.connector.Error as err:
@@ -314,6 +324,7 @@ def rank_a_restaurant(username, rest_name, location, ranking, description):
     try:
         cursor.execute(rating_id_sql)
         rating_id = int(cursor.fetchone()[0])
+        cursor.fetchall()
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
@@ -353,6 +364,7 @@ def update_a_ranking(username, rest_name, location, param, new_val):
     try:
         cursor.execute(id_sql)
         rating_id = int(cursor.fetchone()[0])
+        cursor.fetchall()
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
@@ -437,6 +449,7 @@ def get_top_restaurant_in_location(location):
     try:
         cursor.execute(sql)
         rest_name = cursor.fetchone()[0]
+        cursor.fetchall()
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:
@@ -478,6 +491,7 @@ def get_top_restaurant_in_location(location):
     try:
         cursor.execute(category_sql)
         category = cursor.fetchone()[0]
+        cursor.fetchall()
     except mysql.connector.Error as err:
         # If you're testing, it's helpful to see more details printed.
         if DEBUG:

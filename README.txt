@@ -9,7 +9,20 @@ For running our Python programs, either use `python app-admin.py` or
 client interface, you will either be prompted to log in or to create a new 
 user.
 
-When using the admin interface, the list of users will be dumped in a txt file,
-keyed by user_id and valued by username.
+Here's a test user to use for the client:
+Username: laura_2784
+Password: V7Usjj^n*D
+
+A test restaurant to rank is: 
+Restaurant Name: Chipotle
+Restaurant Location: Seattle
+
+When using admin, a test restaurant to add is: 
+Restaurant Name: Panda Express
+Restaurant Location: Los Angeles 
+Cuisine: Chinese
+Category: Restaurants 
+
+This ^ will also update chains if that option is called, so its a good test.
 
 
