@@ -67,6 +67,7 @@ def show_admin_options():
     print('  (uR) - update an existing restaurant')
     print('  (c) - update chains data with restaurant chains')
     print('  (gC) - get all chains')
+    print('  (gRU) - get recommended restaurants for each user (exports to recommendations.txt)')
     print('  (q) - quit')
     print()
     ans = input('Enter an option: ')
@@ -149,6 +150,15 @@ def show_admin_options():
         print("Here are all the existing chains in the data: ")
         for i, chain_name in enumerate(chains):
             print(f'{i+1}. {chain_name[0]}')
+        show_admin_options()
+    elif ans == 'gRU':
+        recommendations = get_recommended_restaurants_per_user()
+        if len(recommendations) == 0:
+            print("No recommendations retrieved!")
+        else:
+            with open('recommendations.txt', 'w') as write_file:
+                write_file.write(json.dumps(recommendations))
+            print("Successfully exported to recommendations.txt!")
         show_admin_options()
     else:
         print("Invalid Choice. Please try again")
@@ -426,6 +436,44 @@ def get_chains():
             sys.exit(1)
         else:
             print('An error occurred when getting chains.')
+            show_admin_options()
+
+
+def get_recommended_restaurants_per_user():
+    cursor = conn.cursor()
+
+    sql = 'SELECT user_id, username, user_location, restaurant_name, \
+                  avg_rating\
+            FROM users_info LEFT JOIN \
+            (SELECT user_rating.restaurant_id AS restaurant_id,\
+                    restaurant_name,\
+                    restaurant_location,\
+                    AVG(rating) AS avg_rating\
+            FROM rating NATURAL LEFT JOIN user_rating \
+                NATURAL LEFT JOIN restaurant\
+            GROUP BY user_rating.restaurant_id\
+            HAVING avg_rating >= 8.0) AS rest_ratings\
+        ON user_location = restaurant_location\
+        WHERE restaurant_name IS NOT NULL\
+        ORDER BY user_location;'
+    
+    try:
+        cursor.execute(sql)
+        recommendations = []
+        rows = cursor.fetchall()
+        for row in rows:
+            (user_id, username, location, rest_name, avg_rating) = row
+            recommendations.append({"user_id": user_id, "user_name": username,
+                                    "user_location": location, 
+                                    "restaurant": rest_name,
+                                    "avg_rating": float(avg_rating)})
+        return recommendations
+    except mysql.connector.Error as err:
+        if DEBUG:
+            print(err)
+            sys.exit(1)
+        else:
+            print('An error occurred when getting recommendations.')
             show_admin_options()
 
 
