@@ -102,7 +102,12 @@ def show_options(welcome=False):
     elif ans == 'r': 
         rest_name = input('Enter a restaurant name: ')
         location = input('Enter the restaurant location: ')
-        ranking = float(input("Enter a ranking out of 10: "))
+        while True:
+            try:
+                ranking = float(input("Enter a ranking out of 10: "))
+                break
+            except:
+                print("Please enter a number for ranking!")
         description = input(("(optional) "
                             "Enter a description of your experience: "))
         rank_a_restaurant(username, rest_name, location, ranking, description)
@@ -225,7 +230,7 @@ def update_user_profile(update_param, update_val):
     if update_param == 'username':
         try:
             cursor.execute(sql)
-            username = cursor.fetchone()[0].replace('\'', "")
+            username = update_val
             cursor.fetchall()
             print(f'Successfully updated username to {username}!')
             show_options(True)
