@@ -12,7 +12,7 @@ import json
 
 # Debugging flag to print errors when debugging that shouldn't be visible
 # to an actual client. ***Set to False when done testing.***
-DEBUG = True
+DEBUG = False
 
 # ----------------------------------------------------------------------
 # SQL Utility Functions
@@ -93,13 +93,16 @@ def show_admin_options():
                 break
             cuisines.append(cuisine)
         price_range = str(input('Choose from ($, $$, $$$, $$$)) [optional]: '))
-        print(price_range)
+        if price_range == '':
+            price_range = None
         price_ranges = [None, '$', '$$', '$$$', '$$$$']
         while price_range not in price_ranges:
             print(('Invalid price range. Please either pick nothing ',
                   'or select 1 of $, $$, $$$, $$$$'))
             price_range = \
                 input(f'Please enter the new value for price range: ').lower()
+            if price_range == '':
+                price_range = None
         add_a_restaurant(category, restaurant_name, website,\
                          location, cuisines, price_range)
         show_admin_options()
@@ -115,7 +118,7 @@ def show_admin_options():
         print('(l) - location')
         print('(cu) - cuisine')
         print('(p) - price range (optional, $, $$, $$$, or $$$$)')
-        choice = input('Enter an option: ').lower()
+        choice = input('Enter an option: ')
         param = ''
         if choice == 'c': 
             param = 'category'
@@ -135,11 +138,15 @@ def show_admin_options():
         # we will only take one cuisine at a time to error if the cuisine
         # already exists for this restaurant
         val = input(f'Please enter the new value for {param}: ').lower()
+        if val == '':
+            val = None
         price_ranges = [None, '$', '$$', '$$$', '$$$$']
         while param == 'price_range' and val not in price_ranges:
             print('Invalid price range. Please either pick nothing ',
                   'or select 1 of $, $$, $$$, $$$$')
             val = input(f'Please enter the new value for {param}: ').lower()
+            if val == '':
+                val = None
         update_a_restaurant(param, val, rest_name, location)
         show_admin_options()
     elif ans == 'c':
@@ -341,7 +348,7 @@ def update_a_restaurant(param, new_val, rest_name, location):
 
         category_id = get_category_id(new_val)
 
-        remove_sql = "DELETE FROM in_category WHERE rest_id = \'%s\';" \
+        remove_sql = "DELETE FROM in_category WHERE restaurant_id = \'%s\';" \
                         % (rest_id)
         
         try:
