@@ -1,3 +1,5 @@
+This is the final project for CS/IDS 121 - Databases. We emulate the popular food review app, Beli. 
+
 The data has been generated through a Python library called faker
 (https://faker.readthedocs.io/en/master/). We generated preliminary tables
 to run queries.
